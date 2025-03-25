@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +7,24 @@
 </head>
 <body>
     <form action="submit" id="register-form">
-        <input type="number" id="home-number">
-        <input type="number" id="cell-phone-number">
-        <select name="province" id="province">
+        <label for="home-number">شماره تلفن(همراه با کد شهر)</label>
+        <input type="number" id="home-number"> <br>
+        <label for="cell-phone-number">شماره موبایل</label>
+        <input type="number" id="cell-phone-number"> <br>
+        <label for="province">استان</label>
+        <select name="province" id="province"> <br>
             <option value="تهران">تهران</option>
         </select>
-        <select name="city" id="city">
+        <label for="city">شهر</label>
+        <select name="city" id="city"> <br>
             <option value="تهران">تهران</option>
         </select>
-        <input type="number" id="zip-code">
-        <input type="text" name="address" id="address">
+        <label for="zip-code">کد پستی</label>
+        <input type="number" id="zip-code"> <br>
+        <label for="address">آدرس کامل پستی(میتوانید از نقشه استفاده کنید)</label>
+        <input type="text" name="address" id="address"> <br>
+        <button>ثبت اطلاعات</button>
     </form>
-    <img src="./images/sign-up-image.png" alt="">
+    <img src="./images/sign-up-image.png" alt="sign-up-image">
 </body>
 </html>
