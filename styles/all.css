@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "IRANYekanXVF";
+    src: url(../fonts/IRANyekan.ttf);
+}
+
+
+* {
+    font-family: "IRANYekanXVF";
+}
+
+button {
+    background-color: #A72F3B;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+label {
+    color: #CBCBCB;
+}
+
+
+select {
+    color: #434343;
+}
