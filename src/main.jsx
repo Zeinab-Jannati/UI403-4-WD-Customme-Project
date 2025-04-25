@@ -27,8 +27,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="*" element={<NotFound />} /> */}
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
         {/* <Route path="/" element={<UserProfile />} />  */}
-        <Route path="/" element={<OrderStatus />} /> 
-        {/* <Route path="/" element={<OrdersHistory />} />  */}
+        {/* <Route path="/" element={<OrderStatus />} />  */}
+        <Route path="/" element={<OrdersHistory />} /> 
         {/* <Route path="/" element={<OrdersSummary />} />  */}
         {/* <Route path="/" element={<ProductCard />} />  */}
       </Routes>

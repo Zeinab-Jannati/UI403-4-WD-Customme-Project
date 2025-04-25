@@ -35,7 +35,7 @@ const OrderStatus = () => {
             <hr className='w-full' style={{ borderColor: "var(--color-custome-gray-4)"}}/>
 
             <div className='relative w-full'>
-                <span className='flex gap-[0.25rem] w-[9.5rem] h-[2.5rem] absolute left-0 whitespace-nowrap items-center justify-center'>
+                <span className='flex gap-[0.25rem] w-[9.5rem] h-[2.5rem]'>
                     <img src={ billIcon } alt="bill-icon" className='w-[1.5rem] h-[1.5rem]'/>
                     مشاهده سفارش
                 </span>
