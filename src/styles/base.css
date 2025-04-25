@@ -1,0 +1,26 @@
+@theme {
+    --color-primary: #A72F3B;
+    --color-custome-gray-4: :blank;
+    
+}
+
+@font-face {
+    font-family: 'IRANYekanXVF';
+    src: url('../assets/fonts/IRANyekan.ttf');
+}
+
+body {
+    direction: rtl;
+    font-family: 'IRANYekanXVF';
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+:root {
+    --color-primary: #A72F3B;
+    --color-custome-gray-4: #D6D6D6;
+    --color-primary-shade-6: #641C23;
+}
