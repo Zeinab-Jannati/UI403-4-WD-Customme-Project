@@ -17,10 +17,10 @@ const ProfileSidebar = () => {
     return ( 
         <div className="flex flex-col gap-[1.25rem]">
             <h3 className='font-bold text-2xl'>پروفایل</h3>
-            <div className="w-[24.5rem] h-[53.125rem]">
-                <div className="w-[20.125rem] h-full flex flex-col gap-[1.5rem] m-[1.5rem]">
+            <div className="w-[24.5rem] h-[53.125rem] rounded-[16px] border" style={{ borderColor: "var(--color-custome-gray-4)" }}>
+                <div className="w-[20.125rem] h-[50.125rem] flex flex-col gap-[1.5rem] m-[1.5rem]">
                     {/* User Profile Avatar */}
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center border-b">
                         <div className="relative">
                             <img src={ userAvatar } alt="User avatar"/>
                             <div className="flex items-center justify-center absolute bottom-0 left-0 rounded-full w-[2.625rem] h-[2.625rem]" style={{ backgroundColor: "var(--color-primary-tint-7)"}}>
@@ -28,7 +28,7 @@ const ProfileSidebar = () => {
                             </div>
                         </div>
                         <div className="mt-[0.5rem] font-semibold text-sm">نگار زمانی</div>
-                        <div className="text-xs">xxxxxx@Yahoo.com</div>
+                        <div className="text-xs mb-[0.1875rem]">xxxxxx@Yahoo.com</div>
                     </div>
 
 
@@ -111,7 +111,7 @@ const ProfileSidebar = () => {
 
                         </div>
                         
-                        <div className='h-[3rem] w-[20.125rem] border-b flex items-center'>
+                        <div className='h-[3rem] w-[20.125rem] flex items-center'>
                             <a href="#" className=''>
                                 <span className='flex gap-[0.375rem] '>
                                     <img src={ logoutIcon } alt="logout-icon" />

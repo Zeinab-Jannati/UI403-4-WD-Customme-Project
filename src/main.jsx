@@ -11,6 +11,8 @@ import ProfileSidebar from './components/ProfileSidebar.jsx'
 import UserProfile from './pages/UserProfile.jsx'
 import ProductCard from './components/ProductCard.jsx'
 import OrdersSummary from './components/OrdersSummary.jsx'
+import OrdersHistory from './pages/OrdersHistory.jsx'
+import OrderStatus from './components/OrderStatus.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,7 +27,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="*" element={<NotFound />} /> */}
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
         {/* <Route path="/" element={<UserProfile />} />  */}
-        <Route path="/" element={<OrdersSummary />} /> 
+        <Route path="/" element={<OrderStatus />} /> 
+        {/* <Route path="/" element={<OrdersHistory />} />  */}
+        {/* <Route path="/" element={<OrdersSummary />} />  */}
         {/* <Route path="/" element={<ProductCard />} />  */}
       </Routes>
     </Router>
