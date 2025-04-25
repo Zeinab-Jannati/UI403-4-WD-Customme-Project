@@ -6,8 +6,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import MainMenu from '../components/MainMenu'
 import ProfileSidebar from '../components/ProfileSidebar'
-import ProductCard from '../components/ProductCard'
-import OrderSummary from '../components/OrdersSummary'
+
 
 const AccountInfo = () => {
     return ( 
