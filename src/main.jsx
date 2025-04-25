@@ -7,6 +7,8 @@ import UserSignUp from './pages/UserSignUp.jsx'
 import Footer from './pages/Footer.jsx'
 import DesignerSignUp from './pages/DesignerSignUp.jsx'
 import MainMenu from './components/MainMenu.jsx'
+import ProfileSidebar from './components/ProfileSidebar.jsx'
+import UserProfile from './pages/UserProfile.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -14,12 +16,14 @@ createRoot(document.getElementById('root')).render(
     <Router>
       <Routes>
         {/* <Route path="/" element={<Footer />} /> */}
-        <Route path="/" element={<MainMenu />} />
+        {/* <Route path="/" element={<MainMenu />} /> */}
         {/* <Route path="/" element={<UserSignUp />} /> */}
         {/* <Route path="/" element={<DesignerSignUp />} /> */}
         {/* <Route path="/" element={<App />} /> */}
         {/* <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} /> */}
+        <Route path="/" element={<ProfileSidebar />} /> 
+        {/* <Route path="/" element={<UserProfile />} />  */}
       </Routes>
     </Router>
   </StrictMode>,
