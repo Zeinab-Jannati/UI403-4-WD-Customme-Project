@@ -13,6 +13,7 @@ import ProductCard from './components/ProductCard.jsx'
 import OrdersSummary from './components/OrdersSummary.jsx'
 import OrdersHistory from './pages/OrdersHistory.jsx'
 import OrderStatus from './components/OrderStatus.jsx'
+import AccountInfo from './pages/AccountInfo.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -26,7 +27,8 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} /> */}
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
-        <Route path="/" element={<UserProfile />} /> 
+        <Route path="/" element={<AccountInfo />} /> 
+        {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
         {/* <Route path="/" element={<OrdersHistory />} />  */}
         {/* <Route path="/" element={<OrdersSummary />} />  */}

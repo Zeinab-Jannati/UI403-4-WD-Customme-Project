@@ -17,8 +17,10 @@ const ProfileSidebar = () => {
     return ( 
         <div className="flex flex-col gap-[1.25rem]">
             <h3 className='font-bold text-2xl'>پروفایل</h3>
-            <div className="w-[24.5rem] h-[53.125rem] rounded-[16px] border" style={{ borderColor: "var(--color-custome-gray-4)" }}>
-                <div className="w-[20.125rem] h-[50.125rem] flex flex-col gap-[1.5rem] m-[1.5rem]">
+            {/* h-[53.125rem] */}
+            <div className="w-[24.5rem] rounded-[16px] mb-[10.1875rem] border" style={{ borderColor: "var(--color-custome-gray-4)" }}>
+                {/*  h-[50.125rem] */}
+                <div className="w-[20.125rem] h-auto flex flex-col gap-[1.5rem] m-[1.5rem]">
                     {/* User Profile Avatar */}
                     <div className="flex flex-col items-center border-b">
                         <div className="relative">
