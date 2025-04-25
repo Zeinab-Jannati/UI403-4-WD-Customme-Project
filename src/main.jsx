@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<Footer />} /> */}
         {/* <Route path="/" element={<MainMenu />} /> */}
         {/* <Route path="/" element={<UserSignUp />} /> */}
-        <Route path="/" element={<DesignerSignUp />} />
+        {/* <Route path="/" element={<DesignerSignUp />} /> */}
         {/* <Route path="/" element={<App />} /> */}
         {/* <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} /> */}
@@ -29,7 +29,7 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
         {/* <Route path="/" element={<OrdersHistory />} />  */}
-        {/* <Route path="/" element={<OrdersSummary />} />  */}
+        <Route path="/" element={<OrdersSummary />} /> 
         {/* <Route path="/" element={<ProductCard />} />  */}
       </Routes>
     </Router>
