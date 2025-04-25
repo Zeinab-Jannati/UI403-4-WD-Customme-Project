@@ -10,7 +10,7 @@ const MainMenu = () => {
                 style={{ backgroundColor: "var(--color-primary)" }}
             >
                 {/* <Pencil className="w-4 h-4" /> */}
-                خودت طراحی‌ش کن!
+                خودت طراحیش کن!
             </a>
 
             <div className="flex gap-[2.5rem]">

@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         {/* <Route path="/" element={<Footer />} /> */}
         {/* <Route path="/" element={<MainMenu />} /> */}
-        {/* <Route path="/" element={<UserSignUp />} /> */}
+        <Route path="/" element={<UserSignUp />} />
         {/* <Route path="/" element={<DesignerSignUp />} /> */}
         {/* <Route path="/" element={<App />} /> */}
         {/* <Route path="/about" element={<About />} />
@@ -28,7 +28,7 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
         {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
-        <Route path="/" element={<OrdersHistory />} /> 
+        {/* <Route path="/" element={<OrdersHistory />} />  */}
         {/* <Route path="/" element={<OrdersSummary />} />  */}
         {/* <Route path="/" element={<ProductCard />} />  */}
       </Routes>
