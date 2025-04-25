@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import Contact from '../components/Contact'
 
 import map from '../assets/images/map.png'
-import Footer from './Footer'
+import Footer from '../components/Footer'
 
 const UserSignUp = () => {
     return ( 

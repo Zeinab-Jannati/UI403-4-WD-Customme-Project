@@ -4,7 +4,7 @@ import '../styles/components.nav.css'
 
 import Navbar from '../components/Navbar'
 import Contact from '../components/Contact'
-import Footer from './Footer'
+import Footer from '../components/Footer'
 import DesignerSignUpPic from '../assets/images/DesignerSignUp.svg'
 
 const DesignerSignUp = () => {
