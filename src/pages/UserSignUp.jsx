@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar'
 import userInfo from '../assets/icons/user.svg'
 import contactInfo from '../assets/icons/call.svg'
 import map from '../assets/images/map.png'
+import Footer from './Footer'
 
 const UserSignUp = () => {
     return ( 
@@ -28,7 +29,7 @@ const UserSignUp = () => {
         {/* todo: fix the form! */}
         <h3>فرم ثبت اطلاعات</h3>
 
-        <form action="submit" className='flex flex-wrap w-[40.5rem] h-[50.75rem] overflow-hidden rounded-[1.5rem] mr-[6.75rem] mt-[5.0625rem] items-start gap-y-[1.5rem]'>
+        <form action="submit" className='flex flex-wrap w-[40.5rem] h-[50.75rem] overflow-hidden rounded-[1.5rem] mb-[4.375rem] mr-[6.75rem] mt-[5.0625rem] items-start gap-y-[1.5rem]'>
             <div className='w-[18rem] h-[4.25rem] p-[1.5rem]'>
                 <div>
                     <label for='phone-number'>شماره موبایل</label>
@@ -83,6 +84,8 @@ const UserSignUp = () => {
                 <button className='absolute left-[1.5rem] w-[11.5rem] h-[3rem] bg-amber-600 rounded-[8px] text-white'>ثبت اطلاعات</button>
             </div>
         </form>
+
+        <Footer />
     </>
     );
 }
