@@ -13,6 +13,11 @@ const contact = () => {
                     <img src={ userInfo } alt="user-info" />
                     <span>اطلاعات کاربر</span>
                 </div>
+
+                <div>
+                    
+                </div>
+
                 <div className="flex flex-col items-center justify-center">
                     <img src={contactInfo} alt="contact-info" />
                     <span className=''>اطلاعات تماس</span>
