@@ -29,31 +29,31 @@ const DesignerSignUp = () => {
                                     border border-[var(--color-custome-gray-4)] rounded-[0.5rem]'>
                         <div className='flex flex-col gap-[1.5rem]'>
                             <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        <label for='phone-number' className='text-[var(--color-custome-gray-5)]'>نام و نام خانوادگی</label>
+                                        <label for='name' className='text-[var(--color-custome-gray-5)]'>نام و نام خانوادگی</label>
                                     </div>
                                     <div>
-                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pr-[0.5rem]' type="tel" id='phone-number' value='نگار زمانی' dir='rtl'/>
+                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pr-[0.5rem] text-sm' type="text" id='name' value='نگار زمانی' dir='rtl'/>
                                     </div>
                                 </div>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
                                         <label for='phone-number' className='text-[var(--color-custome-gray-5)]'>کد ملی</label>
                                     </div>
                                     <div>
-                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem]' type="tel" id='phone-number' value='۹۹۹۹۹۹۹۹۹۹'/>
+                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="tel" id='phone-number' value='۹۹۹۹۹۹۹۹۹۹'/>
                                     </div>
                                 </div>
                             </div>
                             <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
                                         <label for='phone-number' className='text-[var(--color-custome-gray-5)]'>تحصیلات (اختیاری)</label>
                                     </div>
 
                                     <div className='relative'>
-                                        <select name="" id="" className='appearance-none w-full h-[2.5rem] focus:outline-none rounded-[8px] border border-[var(--color-custome-gray-5)] pr-[0.5rem] mt-[0.25rem]'>
+                                        <select name="" id="" className='appearance-none w-full h-[2.5rem] focus:outline-none rounded-[8px] border border-[var(--color-custome-gray-5)] pr-[0.5rem] mt-[0.25rem] text-sm'>
                                             <option value="پیشفرض">انتخاب کنید</option>
                                             <option value="کارشناسی">کارشناسی</option>
                                         </select>
@@ -62,12 +62,12 @@ const DesignerSignUp = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
                                         <label for='phone-number' className='text-[var(--color-custome-gray-5)]'>شغل (اختیاری)</label>
                                     </div>
                                     <div className='relative'>
-                                        <select name="" id="" className='appearance-none focus:outline-none w-full h-[2.5rem] rounded-[8px] border border-[var(--color-custome-gray-5)] pr-[0.5rem] mt-[0.25rem]'>
+                                        <select name="" id="" className='appearance-none focus:outline-none w-full h-[2.5rem] rounded-[8px] border border-[var(--color-custome-gray-5)] pr-[0.5rem] mt-[0.25rem] text-sm'>
                                             <option value="پیشفرض">انتخاب کنید</option>
                                             <option value="مهندس کامپیوتر">مهندس کامپیوتر</option>
                                         </select>
@@ -78,30 +78,30 @@ const DesignerSignUp = () => {
                                 </div>
                             </div>
                             <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
                                         <label for='phone-number' className='text-[var(--color-custome-gray-5)]'>آدرس ایمیل</label>
                                     </div>
                                     <div>
-                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem]' type="email" id='phone-number' value='n.zamani@gmail.com' dir='ltr'/>
+                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="email" id='phone-number' value='n.zamani@gmail.com' dir='ltr'/>
                                     </div>
                                 </div>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
                                         <label for='password' className='text-[var(--color-custome-gray-5)]'>کلمه عبور</label>
                                     </div>
                                     <div>
-                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem]' type="passord" id='password' value='************' dir='ltr'/>
+                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="passord" id='password' value='************' dir='ltr'/>
                                     </div>
                                 </div>
                             </div>
                             <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
                                         <label for='DOB' className='text-[var(--color-custome-gray-5)]'>تاریخ تولد</label>
                                     </div>
                                     <span className='relative flex'>
-                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem]' type="tel" id='DOB' value='۱۳۷۰/۰۱/۰۱'/>
+                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="tel" id='DOB' value='۱۳۷۰/۰۱/۰۱'/>
                                         <img src={ calendar } alt="calendar" className='absolute right-[0.75rem] top-[1rem] !w-[1rem] !h-[1rem]'/>
                                     </span>
                                 </div>

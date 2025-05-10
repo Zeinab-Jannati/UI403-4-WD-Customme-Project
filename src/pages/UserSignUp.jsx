@@ -9,6 +9,7 @@ import map from '../assets/images/map.png'
 import Footer from '../components/Footer'
 
 import userSignUpImage from '../assets/images/user-sign-up-image.svg'
+import arrowDown from '../assets/icons/arrow-down.svg'
 
 const UserSignUp = () => {
     return ( 
@@ -18,81 +19,90 @@ const UserSignUp = () => {
         <Contact />
         {/* todo: fix the form! */}
         <div className='flex justify-center gap-[3.5rem] mt-[1.5rem] mr-[1.5rem] mb-[4.375rem] '>
-            <div className=' border flex flex-col p-[1rem] rounded-[24px]'  style={{ borderColor: "var(--color-custome-gray-4:)"}}>
-                <h3 className='font-bold' style={{ marginRight: "1.5rem" }}>فرم ثبت اطلاعات</h3>
+            <div>
+                <h2 className='text-[var(--color-primary-tint-7)] font-bold text-xl !mb-[1.5rem]' style={{fontFamily: 'IRANYekanXVF'}}>فرم ثبت اطلاعات</h2>
                 {/* h-[50.75rem] */}
-                <form action="submit" className='flex flex-wrap justify-center w-[40.5rem] h-auto overflow-hidden mt-[2rem] items-start gap-y-[1.5rem] '>
-                    <div>
+                <form action="submit" 
+                    className='flex justify-center w-[40.5rem] h-auto overflow-hidden mt-[2rem] items-start 
+                                border border-[var(--color-custome-gray-5)] flex-col p-[1.5rem] rounded-[1.5rem]'>
+                    <div className='flex flex-col gap-[1.5rem]'>
                         <div className='flex gap-[1.5rem] '>
-                            <div className='w-[18rem] h-[4.25rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                 <div>
-                                    <label for='phone-number'>شماره موبایل</label>
+                                    <label for='cell-phone-number' className='text-[var(--color-custome-gray-5)]'>شماره موبایل</label>
                                 </div>
                                 <div>
-                                    <input className='border rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] text-center' type="tel" id='phone-number' value='۰۹۱۲********'/>
-                                </div>
-                            </div>
-                            <div className='w-[18rem] h-[4.25rem]'>
-                                <div>
-                                    <label for='phone-number'>شماره تلفن (همراه با کد شهر)</label>
-                                </div>
-                                <div>
-                                    <input className='border rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem]' type="tel" id='phone-number' value='۰۲۱۵۵۵۵۵۵۵۵'/>
+                                    <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] pl-[0.5rem] text-sm' type="tel" id='cell-phone-number' value='۰۹۱۲********'/>
                                 </div>
                             </div>
-                        </div>
-                        <div className='flex gap-[1.5rem] my-[1.5rem]'>
-                            <div className='w-[18rem] h-[4.25rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                 <div>
-                                    <label for='phone-number'>استان</label>
+                                    <label for='telephone-number' className='text-[var(--color-custome-gray-5)]'>شماره تلفن (همراه با کد شهر)</label>
                                 </div>
-                                {/* think about it */}
-                                {/* doens't change the size of the option tag */}
-                                <select name="" id="" className='w-full rounded-[8px] border pr-[0.5rem] mt-[0.25rem]'>
-                                    <option value="تهران">تهران</option>
-                                    <option value="اصفهان">اصفهان</option>
-                                </select>
-                            </div>
-                            <div className='w-[18rem] h-[4.25rem]'>
                                 <div>
-                                    <label for='phone-number'>شهر</label>
+                                    <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] pl-[0.5rem] text-sm' type="tel" id='telephone-number' value='۰۲۱۵۵۵۵۵۵۵۵'/>
                                 </div>
-                                {/* think about it */}
-                                <select name="" id="" className='w-full rounded-[8px] border pr-[0.5rem] mt-[0.25rem]'>
-                                    <option value="تهران">تهران</option>
-                                    <option value="اصفهان">اصفهان</option>
-                                </select>
                             </div>
                         </div>
                         <div className='flex gap-[1.5rem]'>
-                            <div className='w-[18rem] h-[4.25rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                 <div>
-                                    <label for='phone-number'>کد پستی</label>
+                                    <label for='province' className='text-[var(--color-custome-gray-5)]'>استان</label>
                                 </div>
+                                <div className="relative">
+                                    <select name="" id="province" className='appearance-none border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] pr-[0.5rem] text-sm'>
+                                        <option value="تهران">تهران</option>
+                                        <option value="اصفهان">اصفهان</option>
+                                    </select>
+                                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none w-[1rem] h-[1rem]">
+                                        <img src={ arrowDown } alt="arrow-down" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                 <div>
-                                    <input className='border rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem]' type="tel" id='phone-number' value='۹۹۹۹۹۹۹۹۹۹'/>
+                                    <label for='city' className='text-[var(--color-custome-gray-5)]'>شهر</label>
+                                </div>
+                                <div className="relative">
+                                    <select name="" id="city" className='appearance-none border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] pr-[0.5rem] text-sm'>
+                                        <option value="تهران">تهران</option>
+                                        <option value="اصفهان">اصفهان</option>
+                                    </select>
+                                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none w-[1rem] h-[1rem]">
+                                        <img src={ arrowDown } alt="arrow-down" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='w-full h-[4.25rem] mt-[1.5rem]'>
+                        <div className='flex gap-[1.5rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                                <div>
+                                    <label for='zip-code' className='text-[var(--color-custome-gray-5)]'>کد پستی</label>
+                                </div>
+                                <div>
+                                    <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] pl-[0.5rem] text-sm' type="tel" id='zip-code' value='۹۹۹۹۹۹۹۹۹۹'/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='w-full h-[4.25rem] flex flex-col gap-[0.25rem]'>
                             <div>
-                                <label for='phone-number'>آدرس  کامل  پستی (میتوانید از نقشه استفاه کنید)</label>
+                                <label for='phone-number' className='text-[var(--color-custome-gray-5)]'>آدرس  کامل  پستی (میتوانید از نقشه استفاه کنید)</label>
                             </div>
                             <div>
-                                <input className='border rounded-[8px] w-full h-[2.5rem] mt-[0.25rem]' type="tel" id='phone-number' value='تهران، خیابان ولیعصر، منطقه ۱۲، بلوار کاوه، کوچه ابوذر، پلاک ۱۵' dir='rtl'/>
+                                <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] pr-[0.5rem] text-sm text-[var(--color-custome-gray-9)]' type="tel" id='phone-number' value='تهران، خیابان ولیعصر، منطقه ۱۲، بلوار کاوه، کوچه ابوذر، پلاک ۱۵' dir='rtl'/>
                             </div>
                         </div>
                     </div>
                     
                     
-                    <img src={ map } alt="map" className='w-[37.5rem] h-[18.75rem]'/>
-                    <div className="w-full" style={{ marginRight: "1.5rem" }}>
+                    <img src={ map } alt="map" className='w-[37.5rem] h-[18.75rem] mt-[2.375rem] mb-[2.5rem]'/>
+                    <div className="w-full flex justify-end pl-[1.5rem]" style={{ marginRight: "1.5rem" }}>
                         <button className='w-[11.5rem] h-[3rem] rounded-[8px] text-white' style={{ backgroundColor: "var(--color-primary)"}}>ثبت اطلاعات</button>
                     </div>
 
                 </form>
             </div>
-            <img src={ userSignUpImage } alt="user-signup-image w-[32.5rem] h-[32rem]" />
+            <img src={ userSignUpImage } alt="user-signup-image" className='self-end w-[32.5rem] h-[32rem] mr-[2rem]' />
         </div>
 
         <Footer />
