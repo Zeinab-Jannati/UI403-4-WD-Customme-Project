@@ -23,7 +23,7 @@ const OrdersHistory = () => {
             <div className='flex gap-[1.5625rem]'>
                 <ProfileSidebar />
                 {/* todo: h-[215.875rem] */}
-                <div className='w-[50.5rem] h-auto'>
+                <div className='w-[50.5rem] pb-[1.5rem]'>
                     <div className='border rounded-[16px] flex flex-col flex-1 p-[1.5rem]' style={{ borderColor: "var(--color-custome-gray-4)"}}>
                         <h2 className='font-extrabold mb-[2rem]' style={{ marginBottom: "2rem"}}>تاریخچه ی سفارشات</h2>
                         <div className='w-[47.5rem] border-b' style={{ borderColor: "var(--color-custome-gray-4)"}}>

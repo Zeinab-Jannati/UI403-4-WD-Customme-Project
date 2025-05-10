@@ -16,9 +16,9 @@ const OtherProduct = () => {
         <>
             <Navbar />
             <MainMenu />
-            <div>
-                {/* <Filter /> */}
-                <div className='flex flex-col w-[57rem] h-[83.4375rem]'>
+            <div className='flex justify-center'>
+                <Filter />
+                <div className='  h-[83.4375rem]'>
                     <div className="flex gap-[2.5rem] m-[1.5rem]">
                         <a href="#" className="">پربازدیدترین </a>
                         <a href="#" className="">جدیدترین</a>
@@ -26,7 +26,7 @@ const OtherProduct = () => {
                         <a href="#" className="">گران ترین</a>
                         <a href="#" className="">ارزان ترین</a>
                     </div>
-                    <div className='flex gap-[1rem] flex-row flex-wrap'>
+                    <div className='flex flex-wrap w-[57rem] gap-[1.25rem] justify-center'>
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />

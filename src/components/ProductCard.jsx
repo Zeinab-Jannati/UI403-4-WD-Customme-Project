@@ -2,6 +2,8 @@ import '../index.css'
 import '../styles/base.css'
 import '../styles/components.nav.css'
 
+import Circles from './Circles'
+
 import heartIcon from '../assets/icons/heart-icon.svg'
 
 const ProductCard = (props) => {
@@ -11,11 +13,13 @@ const ProductCard = (props) => {
     const price = props.price;
 
     return ( 
-        <div className="border rounded-[16px] w-[18rem] h-[26.8125rem] flex flex-col flex-1 p-[1rem]" style={{ borderColor: "var(--color-custome-gray-4)" }}>
+        <div className="border rounded-[16px] flex flex-col p-[1rem] w-[18rem] h-auto" style={{ borderColor: "var(--color-custome-gray-4)" }}>
             {/* <div className='rounded-full flex justify-center items-center'>
             </div> */}
-
-            <img src={ imageUrl } alt="product-card-image" className='rounded-[8px] h-[16rem]' />
+            <div className='relative'>
+                <img src={ imageUrl } alt="product-card-image" className='rounded-[8px] w-[16rem] h-[16rem]' />
+                <Circles />
+            </div>
             <div className='flex flex-col gap-[0.75em]'>
                 <div className='flex flex-col gap-[0.625rem]'>
                     <span className='flex w-full justify-between mt-[1rem]'>
