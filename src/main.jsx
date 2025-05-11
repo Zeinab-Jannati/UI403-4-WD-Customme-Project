@@ -33,9 +33,9 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
         {/* <Route path="/" element={<OtherProduct />} />  */}
         {/* <Route path="/" element={<AccountInfo />} />  */}
-        <Route path="/" element={<UserProfile />} /> 
+        {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
-        {/* <Route path="/" element={<OrdersHistory />} />  */}
+        <Route path="/" element={<OrdersHistory />} /> 
         {/* <Route path="/" element={<Circles />} />  */}
         {/* <Route path="/" element={<ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />} />  */}
       </Routes>
