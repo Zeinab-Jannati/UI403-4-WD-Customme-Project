@@ -17,6 +17,7 @@ import AccountInfo from './pages/AccountInfo.jsx'
 import OtherProduct from './pages/OtherProducts.jsx'
 import ProductCard from './components/ProductCard.jsx'
 import Circles from './components/Circles.jsx'
+import Filter from './components/filter.jsx'
 
 import productPic from './assets/images/product-image.svg'
 
@@ -32,11 +33,12 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<App />} /> */}
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
         {/* <Route path="/" element={<OtherProduct />} />  */}
-        <Route path="/" element={<AccountInfo />} /> 
+        {/* <Route path="/" element={<AccountInfo />} />  */}
         {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
         {/* <Route path="/" element={<OrdersHistory />} />  */}
         {/* <Route path="/" element={<Circles />} />  */}
+        <Route path="/" element={<Filter />} /> 
         {/* <Route path="/" element={<ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />} />  */}
       </Routes>
     </Router>
