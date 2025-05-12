@@ -8,6 +8,7 @@ import MainMenu from '../components/MainMenu'
 import ProfileSidebar from '../components/ProfileSidebar'
 import ProductCard from '../components/ProductCard'
 import Filter from '../components/filter'
+import Pagination from '../components/Pagination'
 
 import productPic from '../assets/images/product-image.svg'
 
@@ -16,15 +17,16 @@ const OtherProduct = () => {
         <>
             <Navbar />
             <MainMenu />
-            <div className='flex justify-center'>
+            <div className='flex justify-center gap-[1.2rem] mt-[1.25rem]'>
                 <Filter />
-                <div className='  h-[83.4375rem]'>
-                    <div className="flex gap-[2.5rem] m-[1.5rem]">
-                        <a href="#" className="">پربازدیدترین </a>
-                        <a href="#" className="">جدیدترین</a>
-                        <a href="#" className="">پرفروش ترین</a>
-                        <a href="#" className="">گران ترین</a>
-                        <a href="#" className="">ارزان ترین</a>
+                {/*  h-[83.4375rem] */}
+                <div className='h-auto'>
+                    <div className="flex gap-[2.5rem] mb-[1.5rem] mr-[0.5rem]">
+                        <a href="#" className="my-[0.5rem] mb-[0.34375rem]">پربازدیدترین </a>
+                        <a href="#" className="my-[0.5rem] mb-[0.34375rem]">جدیدترین</a>
+                        <a href="#" className="my-[0.5rem] mb-[0.34375rem]">پرفروش ترین</a>
+                        <a href="#" className="my-[0.5rem] mb-[0.34375rem]">گران ترین</a>
+                        <a href="#" className="my-[0.5rem] mb-[0.34375rem]">ارزان ترین</a>
                     </div>
                     <div className='flex flex-wrap w-[57rem] gap-[1.25rem] justify-center'>
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
@@ -36,9 +38,9 @@ const OtherProduct = () => {
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                         <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
-                        <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
 
                     </div>
+                    <Pagination />
                 </div>
             </div>
             <Footer />

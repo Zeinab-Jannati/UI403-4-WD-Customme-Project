@@ -1,4 +1,5 @@
 import magicPen from '../assets/icons/magicpen.svg'
+import MobileCaseDropdown from './MobilCaseDropDown';
 const MainMenu = () => {
     return ( 
         <div className="w-full flex justify-center mt-[1.5rem]">
@@ -10,7 +11,7 @@ const MainMenu = () => {
                     </a>
                 </span>
 
-                <div className="flex gap-[2.5rem]">
+                <div className="relative flex gap-[2.5rem] whitespace-nowrap">
                     <span className='flex justify-center w-[6.5rem] h-[1.5rem]'>
                         <a href="#" className="">پوشاک</a>
                     </span>
@@ -18,7 +19,7 @@ const MainMenu = () => {
                         <a href="#" className="">لوازم خانه</a>
                     </span>
                     <span className='flex justify-center w-[6.5rem] h-[1.5rem]'>
-                        <a href="#" className="">قاب موبایل</a>
+                        < MobileCaseDropdown />
                     </span>
                     <span className='flex justify-center w-[6.5rem] h-[1.5rem]'>
                         <a href="#" className="">اکسسوری</a>
