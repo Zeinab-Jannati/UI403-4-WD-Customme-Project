@@ -27,7 +27,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         {/* <Route path="/" element={<Footer />} /> */}
         {/* <Route path="/" element={<MainMenu />} /> */}
         {/* <Route path="/" element={<UserSignUp />} /> */}
@@ -37,7 +37,7 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<AccountInfo />} />  */}
         {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
-        {/* <Route path="/" element={<OrdersHistory />} />  */}
+        <Route path="/" element={<OrdersHistory />} /> 
         {/* <Route path="/" element={<Circles />} />  */}
         {/* <Route path="/" element={<SelectedProduct />} />  */}
         {/* <Route path="/" element={<ShappingCardProduct />} />  */}
