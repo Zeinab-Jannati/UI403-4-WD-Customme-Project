@@ -12,6 +12,7 @@ import addressIcon from '../assets/icons/address-icon.svg'
 import followIcon from '../assets/icons/follow-icon.svg'
 import infoIcon from '../assets/icons/info-icon.svg'
 import logoutIcon from '../assets/icons/logout-icon.svg'
+import { Link } from 'react-router-dom'
 
 const ProfileSidebar = () => {
     return ( 
@@ -64,12 +65,12 @@ const ProfileSidebar = () => {
                         </div>
                         
                         <div className='h-[3.75rem] w-[20.1875rem] border-b border-[var(--color-custome-gray-3)] flex items-center text-[--color-custome-gray-9]'>
-                            <a href="#" className=''>
+                            <Link to='/ordershistory'>
                                 <span className='flex gap-[0.375rem] '>
                                     <img src={ historyIcon } alt="history-icon" />
                                     تاریخجه سفارشات
                                 </span>
-                            </a>
+                            </Link>
 
                         </div>
                         

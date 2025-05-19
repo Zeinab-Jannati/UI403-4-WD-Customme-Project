@@ -28,22 +28,22 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        {/* <Route path="/" element={<Footer />} /> */}
-        {/* <Route path="/" element={<MainMenu />} /> */}
-        {/* <Route path="/" element={<UserSignUp />} /> */}
-        {/* <Route path="/" element={<DesignerSignUp />} /> */}
+        <Route path="/" element={<ShappingCardProduct />} /> 
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Footer />} />
+        <Route path="/" element={<MainMenu />} /> */}
+        <Route path="/usersignup" element={<UserSignUp />} />
+        <Route path="/designersignup" element={<DesignerSignUp />} />
         {/* <Route path="/" element={<ProfileSidebar />} />  */}
-        {/* <Route path="/" element={<OtherProduct />} />  */}
-        {/* <Route path="/" element={<AccountInfo />} />  */}
-        {/* <Route path="/" element={<UserProfile />} />  */}
+        <Route path="/otherproducts" element={<OtherProduct />} /> 
+        <Route path="/accountinfo" element={<AccountInfo />} /> 
+        <Route path="/userprofile" element={<UserProfile />} /> 
         {/* <Route path="/" element={<OrderStatus />} />  */}
-        {/* <Route path="/" element={<OrdersHistory />} />  */}
+        <Route path="/ordershistory" element={<OrdersHistory />} /> 
         {/* <Route path="/" element={<Circles />} />  */}
-        {/* <Route path="/" element={<ShoppingCard />} />  */}
-        {/* <Route path="/" element={<ShappingCardProduct />} />  */}
+        <Route path="/shoppingcard" element={<ShoppingCard />} /> 
         {/* <Route path="/" element={<Filter />} />  */}
-        <Route path="/" element={<SelectedProduct />} /> 
+        <Route path="/selectedproduct" element={<SelectedProduct />} /> 
         {/* <Route path="/" element={<ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />} />  */}
       </Routes>
     </Router>

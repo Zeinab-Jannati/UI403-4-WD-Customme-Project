@@ -19,10 +19,10 @@ const Navbar = () => {
                 <span className='absolute flex h-[2rem] w-[2rem] my-[0.75rem] left-[1.5rem]'><img src={ searchNormal } alt="searchNormal" /></span>
             </div>
             <div className="links flex w-[18rem] h-[2.5rem] gap-[2.875rem] text-[var(--color-custome-gray-9)]">
-                <div className="flex items-center gap-[0.25rem]">
+                <button className="flex items-center gap-[0.25rem] cursor-pointer">
                     <img src={ loginIcon } alt="login-icon" />
                     <span>ورود | ثبت‌نام</span>
-                </div>
+                </button>
                 <div className="flex items-center relative gap-[0.25rem]">
                     <div>
                         <div className='absolute top-[0.3rem] right-[-0.3rem] w-[0.8rem] h-[0.8rem] bg-[var(--color-primary-tint-5)] rounded-full'></div>

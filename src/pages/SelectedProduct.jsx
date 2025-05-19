@@ -41,14 +41,11 @@ const SelectedProduct = () => {
         <>
             <Navbar />
             <MainMenu />
-            {/* { isPopupOpen && (
-                <ReviewCard />
-            )} */}
 
             {isPopupOpen && (
                 <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
                     <div
-                    ref={popupRef}
+                    ref={ popupRef }
                     className="bg-white py-[1.5rem] rounded-xl w-[40.5625rem] shadow-lg relative"
                     >
                     {/* Close button */}
@@ -60,7 +57,7 @@ const SelectedProduct = () => {
                     </button>
 
                     {/* Popup content */}
-                    <ReviewCard />
+                    <ReviewCard onClose={() => setIsPopupOpen(false)}/>
                     </div>
                 </div>
                 )}
@@ -109,12 +106,12 @@ const SelectedProduct = () => {
                                         شخصی سازی محصول
                                     </span>
                                 </button>
-                                <button>
+                                <Link to='/shoppingcard'>
                                     <span className="flex text-white gap-[0.5rem] py-[0.75rem] px-[2rem] border bg-[var(--color-primary)] rounded-[8px] border-[2px] whitespace-nowrap">
                                         <img src={ shoppingCardIcon } alt="magic-pen" className="w-[1.5rem] h-[1.5rem]" />
                                         افزودن  به سبد
                                     </span>
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
