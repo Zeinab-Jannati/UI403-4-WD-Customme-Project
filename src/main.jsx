@@ -18,8 +18,9 @@ import OtherProduct from './pages/OtherProducts.jsx'
 import ProductCard from './components/ProductCard.jsx'
 import Circles from './components/Circles.jsx'
 import Filter from './components/filter.jsx'
-import SelectedProduct from './pages/ShoppingCard.jsx'
+import ShoppingCard from './pages/ShoppingCard.jsx'
 import ShappingCardProduct from './components/ShoppingCardProduct.jsx'
+import SelectedProduct from './pages/SelectedProduct.jsx'
 
 import productPic from './assets/images/product-image.svg'
 
@@ -37,11 +38,12 @@ createRoot(document.getElementById('root')).render(
         {/* <Route path="/" element={<AccountInfo />} />  */}
         {/* <Route path="/" element={<UserProfile />} />  */}
         {/* <Route path="/" element={<OrderStatus />} />  */}
-        <Route path="/" element={<OrdersHistory />} /> 
+        {/* <Route path="/" element={<OrdersHistory />} />  */}
         {/* <Route path="/" element={<Circles />} />  */}
-        {/* <Route path="/" element={<SelectedProduct />} />  */}
+        {/* <Route path="/" element={<ShoppingCard />} />  */}
         {/* <Route path="/" element={<ShappingCardProduct />} />  */}
         {/* <Route path="/" element={<Filter />} />  */}
+        <Route path="/" element={<SelectedProduct />} /> 
         {/* <Route path="/" element={<ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />} />  */}
       </Routes>
     </Router>

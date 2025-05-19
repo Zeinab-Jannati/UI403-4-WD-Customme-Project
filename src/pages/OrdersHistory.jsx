@@ -47,7 +47,7 @@ const OrdersHistory = () => {
                             </div> */}
                         {/* </div> */}
                         <Tabs tabs={ tabs } onTabChange={ handleTabChange } />
-                        <div className="mt-4">
+                        <div>
                             {/* {currentTab === 'ongoing' && <OngoingOrders />}
                             {currentTab === 'delivered' && <DeliveredOrders />}
                             {currentTab === 'returned' && <ReturnedOrders />}
