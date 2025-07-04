@@ -1,0 +1,63 @@
+@theme {
+    --color-primary: #A72F3B;
+    --color-custome-gray-4: #CBCBCB;
+    
+}
+
+@font-face {
+    font-family: 'IRANYekanXVF';
+    src: url('../assets/fonts/IRANyekan.ttf');
+}
+
+body {
+    direction: rtl;
+    font-family: 'IRANYekanXVF';
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+:root {
+    /* Primary Colros */
+    --color-primary: #A72F3B;
+    --color-primary-shade-7: #86262F;
+    --color-primary-shade-6: #641C23;
+    --color-primary-shade-5: #431318;
+    --color-primary-shade-4: #320E12;
+    --color-primary-shade-3: #21090C;
+    --color-primary-shade-2: #110506;
+    --color-primary-shade-1: #000000;
+
+    --color-primary-tint-7: #B95962;
+    --color-primary-tint-6: #CA8289;
+    --color-primary-tint-5: #DCACB1;
+    --color-primary-tint-4: #E5C1C4;
+    --color-primary-tint-3: #EDD5D8;
+    --color-primary-tint-2: #F6EAEB;
+    --color-primary-tint-1: #FFFFFF;
+    /* Gray colors */
+    --color-custome-gray-1: #F8F8F8;
+    --color-custome-gray-2: #F0F0F0;
+    --color-custome-gray-3: #EDEDED;
+    --color-custome-gray-4: #D6D6D6;
+    --color-custome-gray-5: #CBCBCB;
+    --color-custome-gray-6: #AFAFAF;
+    --color-custome-gray-7: #898989;
+    --color-custome-gray-8: #656565;
+    --color-custome-gray-9: #434343;
+    --color-custome-gray-10: #242424;
+    /* State Colors */
+    --color-state-error: #C30000;
+    --color-state-e-light: #ED2E2E;
+    --color-state-e-bg: #FFF2F2;
+    --color-state-warning: #A9791C;
+    --color-state-w-light: #F4B740;
+    --color-state-w-bg: #FFF8E1;
+    --color-state-success: #00966D;
+    --color-state-s-light: #00BA88;
+    --color-state-s-bg: #F3FDFA;
+
+
+}
