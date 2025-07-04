@@ -7,7 +7,6 @@ import '../styles/components.nav.css';
 import Navbar from '../components/Navbar';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-//import LoginImage from '../assets/images/login-image.png'; // فرض می‌کنیم یک تصویر برای صفحه ورود دارید
 
 const Login = () => {
     const navigate = useNavigate();
@@ -25,7 +24,6 @@ const Login = () => {
             ...prevData,
             [id]: value
         }));
-        // پاک کردن خطای خاص فیلد در حال تایپ
         if (errors[id]) {
             setErrors(prevErrors => {
                 const newErrors = { ...prevErrors };
@@ -33,7 +31,6 @@ const Login = () => {
                 return newErrors;
             });
         }
-        // پاک کردن پیام موفقیت/خطای عمومی با هر تغییر ورودی
         if (successMessage) setSuccessMessage('');
         if (errors.general) setErrors(prev => ({ ...prev, general: '' }));
         if (errors.non_field_errors) setErrors(prev => ({ ...prev, non_field_errors: '' }));
@@ -41,13 +38,12 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true); // شروع لودینگ
-        setErrors({}); // پاک کردن خطاهای قبلی
-        setSuccessMessage(''); // پاک کردن پیام موفقیت قبلی
+        setLoading(true); 
+        setErrors({}); 
+        setSuccessMessage(''); 
 
         const newErrors = {};
 
-        // اعتبارسنجی ساده فرانت‌اند
         if (!formData.username.trim()) {
             newErrors.username = 'نام کاربری الزامی است.';
         }
@@ -58,7 +54,7 @@ const Login = () => {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             setLoading(false);
-            return; // جلوگیری از ارسال فرم به بک‌اند
+            return;
         }
 
         const payload = {
@@ -77,13 +73,12 @@ const Login = () => {
                 body: JSON.stringify(payload),
             });
 
-            const data = await response.json(); // فرض می‌کنیم پاسخ همیشه JSON است
+            const data = await response.json(); 
 
             if (response.ok) {
-                // اگر بک‌اند توکن را در 'token' یا 'access' برمی‌گرداند
                 const token = data.token; 
                 if (token) {
-                    localStorage.setItem('authToken', token); // ذخیره توکن در localStorage
+                    localStorage.setItem('authToken', token); 
                     setSuccessMessage('ورود موفقیت‌آمیز! در حال انتقال به صفحه پروفایل...');
                     console.log("Auth Token received and stored:", token);
                     setTimeout(() => {
@@ -93,15 +88,14 @@ const Login = () => {
                     setErrors({ general: 'پاسخ سرور معتبر نیست: توکن یافت نشد.' });
                 }
             } else {
-                // مدیریت خطاها از بک‌اند (مثلاً اعتبارنامه نامعتبر)
-                setErrors(data); // بک‌اند معمولاً یک آبجکت خطا برمی‌گرداند
+                setErrors(data); 
                 console.error('Login failed:', data);
             }
         } catch (error) {
             console.error('Network error or unexpected error during login:', error);
             setErrors({ general: 'خطایی غیرمنتظره رخ داد. لطفا دوباره تلاش کنید.' });
         } finally {
-            setLoading(false); // پایان لودینگ در هر صورت
+            setLoading(false);
         }
     };
 

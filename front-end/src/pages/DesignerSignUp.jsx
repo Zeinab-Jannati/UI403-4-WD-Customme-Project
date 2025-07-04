@@ -31,9 +31,7 @@ const DesignerSignUp = () => {
 
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
-    const [loading, setLoading] = useState(false); // وضعیت لودینگ برای دکمه
-
-    // تابع اعتبارسنجی پیچیدگی رمز عبور
+    const [loading, setLoading] = useState(false); 
     const validatePassword = (password) => {
         const passwordErrors = [];
         if (password.length < 8) {
@@ -68,7 +66,6 @@ const DesignerSignUp = () => {
                 return newErrors;
             });
         }
-        // پاک کردن پیام موفقیت/خطای عمومی با هر تغییر ورودی
         if (successMessage) setSuccessMessage('');
         if (errors.general) setErrors(prev => ({ ...prev, general: '' }));
         if (errors.non_field_errors) setErrors(prev => ({ ...prev, non_field_errors: '' }));
@@ -76,13 +73,12 @@ const DesignerSignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setLoading(true); // شروع لودینگ
-        setErrors({}); // پاک کردن خطاهای قبلی
-        setSuccessMessage(''); // پاک کردن پیام موفقیت قبلی
+        setLoading(true); 
+        setErrors({}); 
+        setSuccessMessage(''); 
 
         const newErrors = {};
 
-        // اعتبارسنجی فیلدهای ضروری
         if (!formData.fullName.trim()) {
             newErrors.fullName = 'نام و نام خانوادگی الزامی است.';
         }
@@ -96,20 +92,17 @@ const DesignerSignUp = () => {
             newErrors.password = ['کلمه عبور الزامی است.'];
         }
 
-        // اعتبارسنجی پیچیدگی رمز عبور
         const passwordValidationErrors = validatePassword(formData.password);
         if (passwordValidationErrors.length > 0) {
             newErrors.password = [...(newErrors.password || []), ...passwordValidationErrors];
         }
 
-        // اگر هر خطایی وجود داشت، آن‌ها را نمایش داده و از ادامه جلوگیری کن
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
-            setLoading(false); // پایان لودینگ
-            return; // جلوگیری از رفتن به مرحله بعدی
+            setLoading(false); 
+            return;
         }
 
-        // اگر اعتبارسنجی فرانت‌اند موفق بود، داده‌ها را به Context ارسال و به مرحله بعدی برو
         updateRegistrationData(formData);
         navigate('/usersignup');
         setLoading(false);
@@ -141,11 +134,9 @@ const DesignerSignUp = () => {
                             <div className='flex gap-[1.5rem]'>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='fullName' className='text-[var(--color-custome-gray-5)]'>نام و نام خانوادگی</label>
                                     </div>
                                     <div>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند */}
                                         <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pr-[0.5rem] text-sm' type="text" id='fullName' placeholder='نگار زمانی' dir='rtl' value={formData.fullName} onChange={handleChange} />
                                         {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
 
@@ -153,11 +144,9 @@ const DesignerSignUp = () => {
                                 </div>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='nationalCode' className='text-[var(--color-custome-gray-5)]'>کد ملی</label>
                                     </div>
                                     <div>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند */}
                                         <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="tel" id='nationalCode' placeholder='۹۹۹۹۹۹۹۹۹۹' value={formData.nationalCode} onChange={handleChange} />
                                         {errors.nationalCode && <p className="text-red-500 text-xs mt-1">{errors.nationalCode}</p>}
                                     </div>
@@ -166,16 +155,14 @@ const DesignerSignUp = () => {
                             <div className='flex gap-[1.5rem]'>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='education' className='text-[var(--color-custome-gray-5)]'>تحصیلات (اختیاری)</label>
                                     </div>
 
                                     <div className='relative'>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند */}
                                         <select id="education" value={formData.education} onChange={handleChange} className='appearance-none w-full h-[2.5rem] focus:outline-none rounded-[8px] border border-[var(--color-custome-gray-5)] pr-[0.5rem] mt-[0.25rem] text-sm'>
-                                            <option value="">انتخاب کنید</option> {/* مقدار خالی برای حالت "انتخاب کنید" */}
+                                            <option value="">انتخاب کنید</option> 
                                             <option value="کارشناسی">کارشناسی</option>
-                                            <option value="کارشناسی ارشد">کارشناسی ارشد</option> {/* گزینه های بیشتر */}
+                                            <option value="کارشناسی ارشد">کارشناسی ارشد</option> 
                                             <option value="دکترا">دکترا</option>
                                         </select>
                                         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none w-[1rem] h-[1rem]">
@@ -186,15 +173,13 @@ const DesignerSignUp = () => {
                                 </div>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='job' className='text-[var(--color-custome-gray-5)]'>شغل (اختیاری)</label>
                                     </div>
                                     <div className='relative'>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند */}
                                         <select id="job" value={formData.job} onChange={handleChange} className='appearance-none focus:outline-none w-full h-[2.5rem] rounded-[8px] border border-[var(--color-custome-gray-5)] pr-[0.5rem] mt-[0.25rem] text-sm'>
-                                            <option value="">انتخاب کنید</option> {/* مقدار خالی برای حالت "انتخاب کنید" */}
+                                            <option value="">انتخاب کنید</option>
                                             <option value="مهندس کامپیوتر">مهندس کامپیوتر</option>
-                                            <option value="معمار">معمار</option> {/* گزینه های بیشتر */}
+                                            <option value="معمار">معمار</option>
                                             <option value="طراح گرافیک">طراح گرافیک</option>
                                         </select>
                                         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none w-[1rem] h-[1rem]">
@@ -207,22 +192,18 @@ const DesignerSignUp = () => {
                             <div className='flex gap-[1.5rem]'>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='email' className='text-[var(--color-custome-gray-5)]'>آدرس ایمیل</label>
                                     </div>
                                     <div>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند */}
                                         <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="email" id='email' placeholder='n.zamani@gmail.com' dir='ltr' value={formData.email} onChange={handleChange} />
                                         {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                                     </div>
                                 </div>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='password' className='text-[var(--color-custome-gray-5)]'>کلمه عبور</label>
                                     </div>
                                     <div>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند. type از "passord" به "password" اصلاح شد. */}
                                         <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="password" id='password' placeholder='************' dir='ltr' value={formData.password} onChange={handleChange} />
                                         {errors.password && Array.isArray(errors.password) ? (
                                             errors.password.map((err, index) => (
@@ -237,11 +218,9 @@ const DesignerSignUp = () => {
                             <div className='flex gap-[1.5rem]'>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        {/* label for باید با id اینپوت مطابق باشد */}
                                         <label htmlFor='DOB' className='text-[var(--color-custome-gray-5)]'>تاریخ تولد</label>
                                     </div>
                                     <span className='relative flex'>
-                                        {/* id و value باید با کلید مربوطه در formData مطابقت داشته باشند */}
                                         <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pl-[0.5rem] text-sm' type="text" id='DOB' placeholder='۱۳۷۰/۰۱/۰۱' value={formData.DOB} onChange={handleChange} /> {/* type به text برگشت تا با placeholder فارسی شما سازگار باشد. اگر می خواهید انتخابگر تاریخ داشته باشید، type را date بگذارید و placeholder را حذف کنید. */}
                                         <img src={calendar} alt="calendar" className='absolute right-[0.75rem] top-[1rem] !w-[1rem] !h-[1rem]' />
                                     </span>
@@ -250,7 +229,6 @@ const DesignerSignUp = () => {
 
                         </div>
                         <div className='w-full flex justify-end'>
-                            {/* همانطور که قبلا ذکر شد، دکمه ارسال در Link قرار ندارد */}
                             
                                 <span className='relative flex justify-center items-center gap-[0.25rem] bg-[var(--color-primary)] text-white w-[11.5rem] h-[3rem] rounded-[0.5rem]'>
                                     <button type="submit" className='' disabled={loading}> 
