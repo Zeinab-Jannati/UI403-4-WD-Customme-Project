@@ -15,7 +15,6 @@ import productPic from '../assets/images/product-image.svg'
 const OtherProduct = () => {
     return ( 
         <>
-            <Navbar />
             <MainMenu />
             <div className='flex justify-center gap-[1.2rem] mt-[1.25rem]'>
                 <Filter />

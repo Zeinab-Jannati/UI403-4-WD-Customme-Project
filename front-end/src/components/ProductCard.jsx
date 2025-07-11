@@ -11,6 +11,7 @@ const ProductCard = (props) => {
     const productName = props.productName;
     const productDescription = props.productDescription;
     const price = props.price;
+    const id = props.id;
 
     return ( 
         <div className="border rounded-[16px] flex flex-col p-[1rem] w-[18rem] h-[26.8125rem]" style={{ borderColor: "var(--color-custome-gray-4)" }}>

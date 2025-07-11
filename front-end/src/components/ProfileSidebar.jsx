@@ -12,12 +12,107 @@ import addressIcon from '../assets/icons/address-icon.svg'
 import followIcon from '../assets/icons/follow-icon.svg'
 import infoIcon from '../assets/icons/info-icon.svg'
 import logoutIcon from '../assets/icons/logout-icon.svg'
-import { Link } from 'react-router-dom'
 
-const ProfileSidebar = ({ userData }) => {
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Navbar from './Navbar'
+import MainMenu from './MainMenu'
+import Footer from './Footer'
+
+import { useAuth } from '../contexts/AuthContext'
+
+const ProfileSidebar = () => {
+
+    const navigate = useNavigate();
+    const { userProfile, isLoading, isAuthenticated, logout } = useAuth();
+    const [userData, setUserData] = useState(null); 
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(''); 
+
+    useEffect(() => {
+        const fetchUserProfile = async () => {
+            const token = localStorage.getItem('authToken'); 
+
+            if (!token) {
+                console.warn("No auth token found. Redirecting to login page.");
+                navigate('/login');
+                return;
+            }
+
+            try {
+                setLoading(true); 
+                const response = await fetch('http://127.0.0.1:8000/api/auth/profile/', { 
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Token ${token}`,
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserData(data); 
+                    console.log("User profile data fetched successfully:", data);
+                } else {
+                    const errorData = await response.json();
+                    setError(errorData.detail || 'خطا در دریافت اطلاعات پروفایل.');
+                    console.error('Failed to fetch user profile:', errorData);
+                    if (response.status === 401 || response.status === 403) {
+                        localStorage.removeItem('authToken'); 
+                        navigate('/login');
+                    }
+                }
+            } catch (err) {
+                setError('خطای شبکه یا خطای غیرمنتظره در هنگام دریافت اطلاعات پروفایل.');
+                console.error('Network or unexpected error:', err);
+            } finally {
+                setLoading(false); 
+            }
+        };
+
+        fetchUserProfile();
+    }, [navigate]); 
+
+    if (loading) {
+        return (
+            <>
+                <Navbar />
+                <MainMenu />
+                <div className="flex justify-center items-center h-[calc(100vh-var(--navbar-height)-var(--footer-height))]">
+                    <p className="text-lg text-[var(--color-primary)]">در حال بارگذاری اطلاعات پروفایل...</p>
+                </div>
+                <Footer />
+            </>
+        );
+    }
+
+    if (error) {
+        return (
+            <>
+                <Navbar />
+                <MainMenu />
+                <div className="flex justify-center items-center h-[calc(100vh-var(--navbar-height)-var(--footer-height))]">
+                    <p className="text-lg text-red-500">{error}</p>
+                </div>
+                <Footer />
+            </>
+        );
+    }
+
     if (!userData) {
         return <div className="w-[18rem] bg-gray-100 p-4 rounded-lg">در حال بارگذاری نوار کناری...</div>;
     }
+
+    
+        const handleLogout = async () => {
+            try {
+                await logout();
+                alert('با موفقیت از سیستم خارج شدید!');
+                navigate('/');
+            } catch (error) {
+                alert(`خطا در خروج: ${error.message}`);
+            }
+        };
 
     return ( 
         <div className="flex flex-col gap-[1.25rem]">
@@ -35,7 +130,7 @@ const ProfileSidebar = ({ userData }) => {
                             </div>
                         </div>
                         <div className='w-[11.875rem] flex flex-col justify-center items-center'>
-                            <div className="h-[2.25rem] text-[var(--color-custome-gray-9)] text-xl">{ userData.full_name }</div>
+                            <div className="h-[2.25rem] text-[var(--color-custome-gray-9)] text-xl">{ userData.username}</div>
                             <div className="h-[2.25rem] text-[var(--color-custome-gray-8)] text-xl">{ userData.email }</div>
                         </div>
                     </div>
@@ -119,12 +214,12 @@ const ProfileSidebar = ({ userData }) => {
                         </div>
                         
                         <div className='h-[3.75rem] w-[20.1875rem] border-b border-[var(--color-custome-gray-3)] flex items-center text-[--color-custome-gray-9]'>
-                            <a href="#" className=''>
+                            <Link onClick={handleLogout}>
                                 <span className='flex gap-[0.375rem] '>
                                     <img src={ logoutIcon } alt="logout-icon" />
                                     خروج
                                 </span>
-                            </a>
+                            </Link>
 
                         </div>
                     </ul>

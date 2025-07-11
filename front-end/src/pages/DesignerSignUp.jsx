@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import React, { useState, useContext } from 'react';
 import { RegistrationContext } from './RegistrationContext';
 
-import Navbar from '../components/Navbar'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import DesignerSignUpPic from '../assets/images/deignersignup.png'
@@ -16,11 +15,11 @@ import calendar from '../assets/icons/calendar.svg'
 
 const DesignerSignUp = () => {
     const [formData, setFormData] = useState({
-        //username: '',
+        username: '',
         email: '',
         password: '',
         DOB: '',
-        fullName: '', 
+        //fullName: '', 
         nationalCode: '', 
         isDesigner: true, 
         education: '', 
@@ -79,8 +78,8 @@ const DesignerSignUp = () => {
 
         const newErrors = {};
 
-        if (!formData.fullName.trim()) {
-            newErrors.fullName = 'نام و نام خانوادگی الزامی است.';
+        if (!formData.username.trim()) {
+            newErrors.username = 'نام و نام خانوادگی الزامی است.';
         }
         if (!formData.nationalCode.trim()) {
             newErrors.nationalCode = 'کد ملی الزامی است.';
@@ -104,6 +103,7 @@ const DesignerSignUp = () => {
         }
 
         updateRegistrationData(formData);
+        localStorage.setItem('registrationFormData', JSON.stringify(formData)); 
         navigate('/usersignup');
         setLoading(false);
     };
@@ -111,7 +111,6 @@ const DesignerSignUp = () => {
 
     return (
         <>
-            <Navbar />
             <Contact />
             <main className='flex justify-center'>
                 {/* <form className='w-[40.5rem] h-[30.0625]' action="submit">
@@ -134,11 +133,11 @@ const DesignerSignUp = () => {
                             <div className='flex gap-[1.5rem]'>
                                 <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                     <div>
-                                        <label htmlFor='fullName' className='text-[var(--color-custome-gray-5)]'>نام و نام خانوادگی</label>
+                                        <label htmlFor='username' className='text-[var(--color-custome-gray-5)]'>نام و نام خانوادگی</label>
                                     </div>
                                     <div>
-                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pr-[0.5rem] text-sm' type="text" id='fullName' placeholder='نگار زمانی' dir='rtl' value={formData.fullName} onChange={handleChange} />
-                                        {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
+                                        <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pr-[0.5rem] text-sm' type="text" id='username' placeholder='نگار زمانی' dir='rtl' value={formData.username} onChange={handleChange} />
+                                        {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
 
                                     </div>
                                 </div>

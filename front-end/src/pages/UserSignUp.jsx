@@ -17,7 +17,7 @@ import arrowDown from '../assets/icons/arrow-down.svg';
 
 const UserSignUp = () => {
     const navigate = useNavigate(); 
-    const { registrationData, setRegistrationData } = useContext(RegistrationContext);
+    const { registrationData, setRegistrationData, updateRegistrationData } = useContext(RegistrationContext);
     const [errors, setErrors] = useState({}); 
     const [successMessage, setSuccessMessage] = useState(''); 
     const [loading, setLoading] = useState(false);
@@ -32,11 +32,20 @@ const UserSignUp = () => {
     });
 
     useEffect(() => {
-        if (Object.keys(registrationData).length === 0 || !registrationData.fullName) {
+        const storedData = localStorage.getItem('registrationFormData');
+        if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            if (Object.keys(registrationData).length === 0) {
+                setRegistrationData(parsedData);
+                console.log("Registration data restored from localStorage:", parsedData);
+            }
+        }
+
+        if (Object.keys(registrationData).length === 0 || !registrationData.username) {
             console.warn("UserSignUp - No initial registration data found. Redirecting to Designer Sign Up.");
             navigate('/designersignup');
         }
-    }, [registrationData, navigate]);
+    }, [registrationData, navigate, setRegistrationData]);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -86,9 +95,10 @@ const UserSignUp = () => {
         }
 
         const finalPayload = {
+            username: registrationData.username,
             email: registrationData.email,
             password: registrationData.password,
-            full_name: registrationData.fullName, 
+            // full_name: registrationData.fullName, 
             national_code: registrationData.nationalCode, 
             birth_date: registrationData.DOB || null, 
             is_designer: registrationData.isDesigner, 
@@ -142,9 +152,12 @@ const UserSignUp = () => {
         }
     };
 
+    if (!registrationData || Object.keys(registrationData).length === 0 || !registrationData.username) {
+        return <p className="text-center mt-8">در حال بارگذاری اطلاعات ثبت نام...</p>;
+    }
+
     return ( 
     <>
-        <Navbar />
         
         <Contact />
         <div className='flex justify-center gap-[3.5rem] mt-[1.5rem] mr-[1.5rem] mb-[4.375rem] '>
@@ -155,7 +168,7 @@ const UserSignUp = () => {
                                border border-[var(--color-custome-gray-5)] flex-col p-[1.5rem] rounded-[1.5rem]'>
 
                     {successMessage && <p className="text-green-500 text-sm w-full text-center mb-2">{successMessage}</p>}
-                    {(errors.general || errors.non_field_errors) && (
+                    {(errors.general || errors.non_field_errors || errors.username || errors.email || errors.password) && (
                         <p className="text-red-500 text-sm w-full text-center mb-2">
                             {errors.general || errors.non_field_errors}
                         </p>

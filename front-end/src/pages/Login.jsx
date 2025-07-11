@@ -101,14 +101,12 @@ const Login = () => {
 
     return (
         <>
-            <Navbar />
             <Contact />
             <main className='flex justify-center items-center min-h-[calc(100vh-var(--navbar-height)-var(--footer-height))] py-8'>
                 <div className='flex flex-col md:flex-row items-center justify-center bg-white p-8 rounded-xl shadow-lg gap-8 w-full max-w-4xl'>
                     <div className='w-full md:w-1/2'>
                         <h2 className='text-[var(--color-primary-tint-7)] font-bold text-2xl mb-6 text-center' style={{ fontFamily: 'IRANYekanXVF' }}>ورود به حساب کاربری</h2>
                         <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-                            {/* نمایش پیام‌های عمومی موفقیت/خطا */}
                             {successMessage && <p className="text-green-500 text-sm w-full text-center mb-2">{successMessage}</p>}
                             {(errors.general || errors.non_field_errors) && (
                                 <p className="text-red-500 text-sm w-full text-center mb-2">
@@ -116,7 +114,6 @@ const Login = () => {
                                 </p>
                             )}
 
-                            {/* فیلد نام کاربری */}
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor='username' className='text-[var(--color-custome-gray-5)] text-sm'>نام کاربری</label>
                                 <input
@@ -125,14 +122,13 @@ const Login = () => {
                                     id='username'
                                     value={formData.username}
                                     onChange={handleChange}
-                                    dir='ltr'
+                                    dir='rtlه'
                                     placeholder='نام کاربری خود را وارد کنید'
                                     required
                                 />
                                 {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
                             </div>
 
-                            {/* فیلد رمز عبور */}
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor='password' className='text-[var(--color-custome-gray-5)] text-sm'>رمز عبور</label>
                                 <input
@@ -141,14 +137,13 @@ const Login = () => {
                                     id='password'
                                     value={formData.password}
                                     onChange={handleChange}
-                                    dir='ltr'
+                                    dir='rtl'
                                     placeholder='رمز عبور خود را وارد کنید'
                                     required
                                 />
                                 {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
                             </div>
 
-                            {/* دکمه ورود */}
                             <button
                                 type="submit"
                                 disabled={loading}
@@ -157,7 +152,6 @@ const Login = () => {
                                 {loading ? 'در حال ورود...' : 'ورود'}
                             </button>
 
-                            {/* لینک ثبت نام */}
                             <p className="text-center text-sm text-gray-600 mt-4">
                                 حساب کاربری ندارید؟{' '}
                                 <Link to="/designersignup" className="text-[var(--color-primary)] hover:underline">
@@ -166,9 +160,7 @@ const Login = () => {
                             </p>
                         </form>
                     </div>
-                    <div className='w-full md:w-1/2 flex justify-center items-center'>
-                        {/* <img src={LoginImage} alt="Login Illustration" className='max-w-full h-auto rounded-lg shadow-md' /> */}
-                    </div>
+                   
                 </div>
             </main>
             <Footer />

@@ -5,9 +5,7 @@ import plusIconBlack from '../assets/icons/plus-icon-black.svg'
 const ReviewCard = ({ onClose }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // your submit logic here
-
-        // ✅ Close popup after submission
+        
         onClose();
     };
     return ( 

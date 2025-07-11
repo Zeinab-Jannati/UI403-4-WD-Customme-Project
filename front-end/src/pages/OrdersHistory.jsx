@@ -29,7 +29,6 @@ const OrdersHistory = () => {
 
     return ( 
         <>
-        <Navbar />
         <MainMenu />
         <div className='flex justify-center mt-[2rem]'>
             <div className='flex gap-[1.5625rem]'>

@@ -1,6 +1,3 @@
-// src/pages/ConfirmUserInfo.jsx
-import React from 'react';
-
 const ConfirmUserInfo = () => {
     return (
         <div style={{ padding: '2rem', textAlign: 'center' }}>

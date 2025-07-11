@@ -12,7 +12,7 @@ export const RegistrationProvider = ({ children }) => {
   const contextValue = {
     registrationData,
     updateRegistrationData,
-    setRegistrationData, 
+    setRegistrationData,
   };
 
   return (

@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import '../index.css'
 import '../styles/base.css'
 import '../styles/components.nav.css'
@@ -14,93 +11,51 @@ import OrderSummary from '../components/OrdersSummary'
 
 import productPic from '../assets/images/product-image.svg'
 import leftCarousel from '../assets/icons/left-carousel.svg'
+import React, { useState, useEffect } from 'react'
+
+import { Link } from 'react-router-dom'
 
 const UserProfile = () => {
-    const navigate = useNavigate();
-    const [userData, setUserData] = useState(null); 
-    const [loading, setLoading] = useState(true); 
-    const [error, setError] = useState(''); 
+    const [bestSellerProducts, setBestSellerProducts] = useState([]);
+    const [loadingBestSellers, setLoadingBestSellers] = useState(true);
+    const [errorBestSellers, setErrorBestSellers] = useState(null);
 
     useEffect(() => {
-        const fetchUserProfile = async () => {
-            const token = localStorage.getItem('authToken'); 
-
-            if (!token) {
-                console.warn("No auth token found. Redirecting to login page.");
-                navigate('/login');
-                return;
-            }
-
+        const fetchBestSellerProducts = async () => {
+            setLoadingBestSellers(true);
+            setErrorBestSellers(null);
+            const apiUrl = 'http://127.0.0.1:8000/api/products/?sort_by=best_sellers';
+            
             try {
-                setLoading(true); 
-                const response = await fetch('http://127.0.0.1:8000/api/auth/profile/', { 
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Token ${token}`,
-                    },
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    setUserData(data); 
-                    console.log("User profile data fetched successfully:", data);
-                } else {
-                    const errorData = await response.json();
-                    setError(errorData.detail || 'خطا در دریافت اطلاعات پروفایل.');
-                    console.error('Failed to fetch user profile:', errorData);
-                    if (response.status === 401 || response.status === 403) {
-                        localStorage.removeItem('authToken'); 
-                        navigate('/login');
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    const contentType = response.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") !== -1) {
+                        const errorData = await response.json(); 
+                        throw new Error(errorData.detail || errorData.message || `فراخوانی علاقه مندیها با مشکل مواجه شد: ${response.status}`);
+                    } else {
+                        throw new Error(`فراخوانی علاقه مندیها با مشکل مواجه شد. کد وضعیت: ${response.status}`);
                     }
                 }
+                const data = await response.json();
+                console.log("محصولات علاقه مندی دریافت شده:", data.results);
+                setBestSellerProducts(data.results);
             } catch (err) {
-                setError('خطای شبکه یا خطای غیرمنتظره در هنگام دریافت اطلاعات پروفایل.');
-                console.error('Network or unexpected error:', err);
+                console.error("خطا در گرفتن علاقه مندیها:", err);
+                setErrorBestSellers(err.message);
             } finally {
-                setLoading(false); 
+                setLoadingBestSellers(false);
             }
         };
 
-        fetchUserProfile();
-    }, [navigate]); 
-
-    if (loading) {
-        return (
-            <>
-                <Navbar />
-                <MainMenu />
-                <div className="flex justify-center items-center h-[calc(100vh-var(--navbar-height)-var(--footer-height))]">
-                    <p className="text-lg text-[var(--color-primary)]">در حال بارگذاری اطلاعات پروفایل...</p>
-                </div>
-                <Footer />
-            </>
-        );
-    }
-
-    if (error) {
-        return (
-            <>
-                <Navbar />
-                <MainMenu />
-                <div className="flex justify-center items-center h-[calc(100vh-var(--navbar-height)-var(--footer-height))]">
-                    <p className="text-lg text-red-500">{error}</p>
-                </div>
-                <Footer />
-            </>
-        );
-    }
-
-    if (!userData) {
-        return null; 
-    }
-
+        fetchBestSellerProducts();
+    }, []);
     return ( 
         <>
-            <Navbar />
             <MainMenu />
             <div className='flex justify-center mt-[2rem] h-auto'>
                 <div className='flex gap-[1.5625rem] h-auto p-[1.5rem]'>
-                    <ProfileSidebar userData={userData} />
+                    <ProfileSidebar/>
                     <div className='w-[50.5rem] h-auto  border border-[var(--color-custome-gray-3)] rounded-[16px] p-[1.5rem] mt-[4.0625rem] mb-[3.75rem] overflow-x-hidden'>
                         <h2 className='font-bold text-2xl'>سفارشات من</h2>
                         <OrderSummary />
@@ -111,12 +66,33 @@ const UserProfile = () => {
                                 <a href="#" className='w-[8rem] h-[2.5rem] text-[var(--color-primary)] flex items-center justify-center'>مشاهده بیشتر</a>
                             </span>
                             {/* todo: fix left carousel */}
-                            <div className='relative flex gap-[1rem]'>
+                            {/* <div className='relative flex gap-[1rem]'>
                                 <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                                 <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                                 <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                                 <div className='overflow-visible absolute left-[-2rem] top-1/2 w-[2.5rem] h-[2.5rem] z-10'>
                                     <img src={ leftCarousel } alt="left-carousel" className='' />
+                                </div>
+                            </div> */}
+
+                            <div className='relative w-full flex justify-center mt-[1.5rem] mb-[2.5rem]'>
+                                <div className='w-[76.5rem] h-auto flex flex-wrap gap-[1.5rem]'>
+                                    {loadingBestSellers && <p className='text-center w-full'>در حال بارگذاری پرفروش‌ترین‌ها...</p>}
+                                    {errorBestSellers && <p className='text-center w-full text-red-500'>خطا در دریافت پرفروش‌ترین‌ها: {errorBestSellers}</p>}
+                                    {!loadingBestSellers && !errorBestSellers && bestSellerProducts.length === 0 && <p className='text-center w-full'>محصول پرفروشی یافت نشد.</p>}
+
+                                    {!loadingBestSellers && bestSellerProducts.map(product => (
+                                        <Link key={product.id} to={`/product/${product.id}`}>
+                                            <ProductCard 
+                                                key={product.id} 
+                                                id={product.id}
+                                                imageUrl={product.image_url}
+                                                productName={product.name} 
+                                                productDescription={product.description} 
+                                                price={product.price} 
+                                            />
+                                        </Link>
+                                    ))}
                                 </div>
                             </div>
 

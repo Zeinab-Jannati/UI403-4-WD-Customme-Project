@@ -25,35 +25,37 @@ import SelectedProduct from './pages/SelectedProduct.jsx';
 import ConfirmUserInfo from './pages/ConfirmUserInfo.jsx'; 
 import Login from './pages/Login.jsx';
 
-import productPic from './assets/images/product-image.svg';
+import { AuthProvider } from './contexts/AuthContext.jsx';
+import Navbar from './components/Navbar.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <RegistrationProvider>
-        <Routes>
-          {/* <Route path="/" element={<ShappingCardProduct />} />  */}
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/" element={<Footer />} />
-          <Route path="/" element={<MainMenu />} /> */}
-            <Route path="/usersignup" element={<UserSignUp />} />
-            <Route path="/designersignup" element={<DesignerSignUp />} />
-          {/* <Route path="/" element={<ProfileSidebar />} />  */}
-          <Route path="/otherproducts" element={<OtherProduct />} /> 
-          <Route path="/accountinfo" element={<AccountInfo />} /> 
-          <Route path="/userprofile" element={<UserProfile />} /> 
-          {/* <Route path="/" element={<OrderStatus />} />  */}
-          <Route path="/ordershistory" element={<OrdersHistory />} /> 
-          {/* <Route path="/" element={<Circles />} />  */}
-          <Route path="/shoppingcard" element={<ShoppingCard />} /> 
-          {/* <Route path="/" element={<Filter />} />  */}
-          <Route path="/selectedproduct" element={<SelectedProduct />} /> 
-          {/* <Route path="/" element={<ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />} />  */}
-          
-          {/* New route for handling form submission */}
-          <Route path="/confirm-user-info" element={<ConfirmUserInfo />} /> 
-          <Route path="/login" element={<Login />} /> 
-        </Routes>
+        <AuthProvider>
+          <Navbar />
+          <Routes>
+            {/* <Route path="/" element={<ShappingCardProduct />} />  */}
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Footer />} />
+            <Route path="/" element={<MainMenu />} /> */}
+              <Route path="/usersignup" element={<UserSignUp />} />
+              <Route path="/designersignup" element={<DesignerSignUp />} />
+            {/* <Route path="/" element={<ProfileSidebar />} />  */}
+            <Route path="/otherproducts" element={<OtherProduct />} /> 
+            <Route path="/accountinfo" element={<AccountInfo />} /> 
+            <Route path="/userprofile" element={<UserProfile />} /> 
+            {/* <Route path="/" element={<OrderStatus />} />  */}
+            <Route path="/ordershistory" element={<OrdersHistory />} /> 
+            {/* <Route path="/" element={<Circles />} />  */}
+            <Route path="/shoppingcard" element={<ShoppingCard />} /> 
+            {/* <Route path="/" element={<Filter />} />  */}
+            <Route path="/product/:id" element={<SelectedProduct />} /> 
+            <Route path="/confirm-user-info" element={<ConfirmUserInfo />} /> 
+            <Route path="/login" element={<Login />} /> 
+          </Routes>
+        </AuthProvider>
       </RegistrationProvider>
     </Router>
   </StrictMode>,
