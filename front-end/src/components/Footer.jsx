@@ -11,14 +11,20 @@ import e1 from '../assets/icons/e1.svg'
 import e2 from '../assets/icons/e2.svg'
 import e3 from '../assets/icons/e3.svg'
 
-const Footer = () => {
+import HomeIcon2 from '../Icons/HomeIcon2'
+import CustomDesign from '../Icons/CustomDesign'
+import ShoppingCart from '../Icons/ShoppingCart'
+import User from '../Icons/User'
+
+const Footer = ({classname}) => {
     return ( 
-        <>
+        <div className={`${classname}`}>
 
-        <div className="h-[33.4375rem] relative  text-white" style={{backgroundColor: "var(--color-primary)"}}>
+        {/* h-[33.4375rem] */}
+        <div className="h-auto relative text-white" style={{backgroundColor: "var(--color-primary)"}}>
 
-            <div className="flex justify-around h-[11.25rem] items-center" style={{ backgroundColor: "var(--color-primary-shade-6)"}}>
-                <div>
+            <div className="flex justify-around h-[11.25rem] items-center py-[1rem]" style={{ backgroundColor: "var(--color-primary-shade-6)"}}>
+                <div className='hidden sm:block'>
                     <div className="flex items-baseline-last gap-[0.75rem]">
                     <div className="w-[29rem] h-[4.25rem] flex flex-col gap-[0.25rem]">
                         <label className='whitespace-nowrap' htmlFor="email-input">برای دریافت آخرین اخبار و تخفیف های جدید،ایمیل خود را وارد نمایید</label>
@@ -29,7 +35,14 @@ const Footer = () => {
                 </div>    
                 </div>    
                 <div className="flex flex-col items-center gap-[1.5rem] !w-[30rem]">
-                    <span>ما را در شبکه های اجتماعی دنبال کنید</span>
+                    <span className='hidden sm:block'>ما را در شبکه های اجتماعی دنبال کنید</span>
+                    <div className='sm:hidden flex flex-col gap-[1rem]'>
+                        <p className='flex'>
+                            <span>تماس با پشتیبانی:</span>
+                            <span>&nbsp;۰۲۱-۳۴۵۶۰۰۰</span>
+                        </p>
+                        <p>پاسخگویی ۲۴ ساعته ، ۷ روز هفته </p>
+                    </div>
                     <div className='flex gap-[1.5rem]'>
                         <a href="#">
                             <img src={ youtube } alt="youtube" />
@@ -44,10 +57,11 @@ const Footer = () => {
                             <img src={ instagram } alt="instagram" />
                         </a>
                     </div>
+                    <p>تمام حقوق این وبسایت متعلق به فروشگاه آنلاین کاستومی می باشد</p>
                 </div>
             </div>
 
-            <div className='flex justify-evenly mt-[3.3125rem]'>
+            <div className='hidden sm:flex justify-evenly mt-[3.3125rem]'>
                 <div className="grid grid-cols-1 grid-cols-3 gap-8">
                     
                     <div className='flex flex-col gap-y-[1.5rem] text-base'>
@@ -98,12 +112,33 @@ const Footer = () => {
                 </div>
 
             </div>
-            <div className="mt-8 mr-[6.75rem] text-[small] mb-[1.1875rem]">
+            <div className="mt-8 mr-[6.75rem] text-[small] pb-[1.1875rem] hidden sm:block">
                 تمام حقوق این وب‌سایت متعلق به فروشگاه آنلاین کاستومی می‌باشد
             </div>
 
+            <div className='sm:hidden flex justify-center pb-[1.25rem] pt-[1rem]'>
+                <div className='flex gap-[2rem]'>
+                    <div className='w-fit h-[2.5rem] flex flex-col gap-[0.25rem] !justify-center items-center'>
+                        <HomeIcon2 />
+                        <p className='text-xs text-[var(--color-custome-gray-5)]'>خانه</p>
+                    </div>
+                    <div className='w-fit h-[2.5rem] flex flex-col gap-[0.25rem] !justify-center items-center'>
+                        <CustomDesign />
+                        <p className='text-xs text-[var(--color-custome-gray-5)]'>طراحی سفارشی</p>
+                    </div>
+                    <div className='w-fit h-[2.5rem] flex flex-col gap-[0.25rem] !justify-center items-center'>
+                        <ShoppingCart />
+                        <p className='text-xs text-[var(--color-custome-gray-5)]'>سبد خرید</p>
+                    </div>
+                    <div className='w-fit h-[2.5rem] flex flex-col gap-[0.25rem] !justify-center items-center'>
+                        <User />
+                        <p className='text-xs text-[var(--color-custome-gray-5)]'>پروفایل</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        </>
+        </div>
      );
 }
  

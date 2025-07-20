@@ -244,7 +244,7 @@ const DesignerSignUp = () => {
                     <img className='object-cover w-full h-[21.125rem]' src={DesignerSignUpPic} alt="designer-sign-up-pic" />
                 </div>
             </main>
-            <Footer />
+            <Footer classname="hidden sm:block" />
         </>
     );
 }

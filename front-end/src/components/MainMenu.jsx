@@ -2,7 +2,7 @@ import magicPen from '../assets/icons/magicpen.svg'
 import MobileCaseDropdown from './MobilCaseDropDown';
 const MainMenu = () => {
     return ( 
-        <div className="w-full flex justify-center mt-[1.5rem]">
+        <div className="hidden sm:flex w-full justify-center mt-[1.5rem]">
             <nav className="flex justify-center items-center w-[75.6rem] h-[4rem] gap-[2rem]">
                 <span className='flex items-center justify-center gap-[0.25rem] text-white w-[11.5rem] h-[3rem] rounded-[8px] bg-[var(--color-primary)]'>
                     <img src={ magicPen } alt="magic-pen" className='w-[1.5rem] h-[1.5rem]' />

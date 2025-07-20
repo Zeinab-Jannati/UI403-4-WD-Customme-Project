@@ -310,7 +310,7 @@ const UserSignUp = () => {
             <img src={ userSignUpImage } alt="user-signup-image" className='self-end w-[32.5rem] h-[32rem] mr-[2rem]' />
         </div>
 
-        <Footer />
+        <Footer classname="hidden sm:block" />
     </>
     );
 }
