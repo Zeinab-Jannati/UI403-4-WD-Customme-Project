@@ -16,49 +16,50 @@ import CustomDesign from '../Icons/CustomDesign'
 import ShoppingCart from '../Icons/ShoppingCart'
 import User from '../Icons/User'
 
-const Footer = ({classname}) => {
+const Footer = ({classname, special}) => {
     return ( 
-        <div className={`${classname}`}>
+        <div className={`${classname} w-[100vw]`}>
 
         {/* h-[33.4375rem] */}
-        <div className="h-auto relative text-white" style={{backgroundColor: "var(--color-primary)"}}>
+        <div className="w-full h-auto relative text-white" style={{backgroundColor: "var(--color-primary)"}}>
 
-            <div className="flex justify-around h-[11.25rem] items-center py-[1rem]" style={{ backgroundColor: "var(--color-primary-shade-6)"}}>
-                <div className='hidden sm:block'>
-                    <div className="flex items-baseline-last gap-[0.75rem]">
-                    <div className="w-[29rem] h-[4.25rem] flex flex-col gap-[0.25rem]">
-                        <label className='whitespace-nowrap' htmlFor="email-input">برای دریافت آخرین اخبار و تخفیف های جدید،ایمیل خود را وارد نمایید</label>
-                        <input className="border rounded-[8px] w-full h-[2.5rem]" type="text" id="email-input" placeholder="ایمیل شما" />
+            <div className={`${special}"w-full flex sm:justify-around h-[11.25rem] items-center sm:y-[1rem]"`} style={{ backgroundColor: "var(--color-primary-shade-6)"}}>
+                <div className='sm:h-full sm:flex sm:items-center sm:justify-evenly'>
+                    <div className="hidden sm:flex items-baseline-last gap-[0.75rem]">
+                        <div className=" w-[29rem] h-[4.25rem] flex flex-col gap-[0.25rem]">
+                            <label className='whitespace-nowrap' htmlFor="email-input">برای دریافت آخرین اخبار و تخفیف های جدید،ایمیل خود را وارد نمایید</label>
+                            <input className="border rounded-[8px] w-full h-[2.5rem]" type="text" id="email-input" placeholder="ایمیل شما" />
+                        </div>
+                        {/* is this right? to make the button into an a tag? */}
+                        <a href="#"><button action='submit' className="w-[5rem] h-[2.5rem] rounded-[8px]" style={{backgroundColor: "var(--color-primary)"}}>ثبت</button></a>
+                    </div>    
+                   
+                    <div className="flex flex-col items-center gap-[1.5rem] !w-[30rem]">
+                        <span className='hidden sm:block'>ما را در شبکه های اجتماعی دنبال کنید</span>
+                        <div className='sm:hidden flex flex-col gap-[1rem]'>
+                            <p className='flex'>
+                                <span>تماس با پشتیبانی:</span>
+                                <span>&nbsp;۰۲۱-۳۴۵۶۰۰۰</span>
+                            </p>
+                            <p>پاسخگویی ۲۴ ساعته ، ۷ روز هفته </p>
+                        </div>
+                        <div className='flex gap-[1.5rem]'>
+                            <a href="#">
+                                <img src={ youtube } alt="youtube" />
+                            </a>
+                            <a href="#">
+                                <img src={ pinterest } alt="pinterest" />
+                            </a>
+                            <a href="#">
+                                <img src={ facebook } alt="facebook" />
+                            </a>
+                            <a href="#">
+                                <img src={ instagram } alt="instagram" />
+                            </a>
+                        </div>
+                        <p className='sm:hidden'>تمام حقوق این وبسایت متعلق به فروشگاه آنلاین کاستومی می باشد</p>
                     </div>
-                    {/* is this right? to make the button into an a tag? */}
-                    <a href="#"><button action='submit' className="w-[5rem] h-[2.5rem] rounded-[8px]" style={{backgroundColor: "var(--color-primary)"}}>ثبت</button></a>
-                </div>    
-                </div>    
-                <div className="flex flex-col items-center gap-[1.5rem] !w-[30rem]">
-                    <span className='hidden sm:block'>ما را در شبکه های اجتماعی دنبال کنید</span>
-                    <div className='sm:hidden flex flex-col gap-[1rem]'>
-                        <p className='flex'>
-                            <span>تماس با پشتیبانی:</span>
-                            <span>&nbsp;۰۲۱-۳۴۵۶۰۰۰</span>
-                        </p>
-                        <p>پاسخگویی ۲۴ ساعته ، ۷ روز هفته </p>
-                    </div>
-                    <div className='flex gap-[1.5rem]'>
-                        <a href="#">
-                            <img src={ youtube } alt="youtube" />
-                        </a>
-                        <a href="#">
-                            <img src={ pinterest } alt="pinterest" />
-                        </a>
-                        <a href="#">
-                            <img src={ facebook } alt="facebook" />
-                        </a>
-                        <a href="#">
-                            <img src={ instagram } alt="instagram" />
-                        </a>
-                    </div>
-                    <p>تمام حقوق این وبسایت متعلق به فروشگاه آنلاین کاستومی می باشد</p>
-                </div>
+                </div> 
             </div>
 
             <div className='hidden sm:flex justify-evenly mt-[3.3125rem]'>

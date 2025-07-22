@@ -15,13 +15,13 @@ import loginIcon from '../assets/icons/login-icon.svg'
 import userIcon from '../assets/icons/user-gray.svg'
 
 
-const Navbar = () => {
+const Navbar = ({}) => {
     const { isAuthenticated, userProfile, isLoading, logout } = useAuth();
 
 
     return ( 
         
-        <nav className='w-full flex items-center justify-center h-[6.5rem] border-b border-[var(--color-custome-gray-2)] !gap-0'>
+        <nav className='w-full sm:flex items-center justify-center h-[6.5rem] border-b border-[var(--color-custome-gray-2)] !gap-0'>
             <div className='mx-[1.25rem] sm:mx-[6.75rem] flex items-center sm:gap-[4.72125rem] gap-[0.75rem]'>
                 <img src={ logo } alt="logo" className='hidden sm:block'/>
                 <img src={ menu } alt="menu" className='sm:hidden h-[1.5rem] w-[1.5rem] ml-[0.75rem] mr-[1.25rem]'/>

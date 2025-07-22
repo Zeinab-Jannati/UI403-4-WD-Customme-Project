@@ -13,6 +13,8 @@ import arrowDown from '../assets/icons/arrow-down.svg'
 import arrowLeftWhite from '../assets/icons/arrow-left-white.svg'
 import calendar from '../assets/icons/calendar.svg'
 
+import ArrowRight from '../Icons/ArrowRight';
+
 const DesignerSignUp = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -111,17 +113,41 @@ const DesignerSignUp = () => {
 
     return (
         <>
+            <div className='sm:hidden flex flex-col'>
+                <div className='flex gap-[0.5rem] mt-[1rem] mr-[1.25rem] mb-[0.625rem]'>
+                    <ArrowRight />
+                    <span className='text-[0.75rem]'> فرم ثبت نام</span>
+                </div>
+                <hr className='text-[var(--color-custome-gray-3)] border-t-[3px]'/>
+            </div>
             <Contact />
-            <main className='flex justify-center'>
+            <div className='flex justify-between mx-[1.25rem] my-[1rem] sm:hidden'>
+                <div className='flex flex-col'>
+                    <span className='text-[1rem]'>اطلاعات کاربر</span>
+                    <span className='text-[0.75rem] text-[var(--color-custome-gray-6)]'>مرحله بعد: اطلاعات تماس</span>
+                </div>
+                <div className='relative w-[4.25rem] h-[4.25rem] flex flex-col justify-center items-center'>
+                    <div className='absolute w-[3.75rem] h-[3.75rem] rounded-full border-[6px] border-[var(--color-primary)]' style={{ clipPath: 'inset(0 0 0 50%)' }}>
+
+                    </div>
+                    <div className='absolute w-[3.75rem] h-[3.75rem] rounded-full border-[6px] border-[var(--color-custome-gray-6)]' style={{ clipPath: 'inset(0 50% 0 0)' }}>
+
+                    </div>
+                    <span className='text-[0.75rem] absolute whitespace-nowrap'>۱ از ۲</span>
+                </div>
+            </div>
+
+            
+            <main className='w-full flex flex-col-reverse sm:flex-row justify-center sm:gap-[3.5rem]'>
                 {/* <form className='w-[40.5rem] h-[30.0625]' action="submit">
                     <input type="text" className='border border-black'/>
                 </form> */}
-                <div>
-                    <h2 className='text-[var(--color-primary-tint-7)] font-bold text-xl !mb-[1.5rem]' style={{ fontFamily: 'IRANYekanXVF' }}>فرم ثبت اطلاعات</h2>
+                <div className='flex justify-center sm:flex-col'>
+                    <h2 className='hidden sm:block text-[var(--color-primary-tint-7)] font-bold text-xl !mb-[1.5rem]' style={{ fontFamily: 'IRANYekanXVF' }}>فرم ثبت اطلاعات</h2>
                     <form onSubmit={handleSubmit}
-                        className=' flex flex-wrap justify-center items-start p-[1.5rem]
-                                       w-[40.5rem] h-auto overflow-hidden mb-[3.5625rem] gap-y-[1.5rem]
-                                       border border-[var(--color-custome-gray-4)] rounded-[0.5rem]'>
+                        className=' relative flex flex-wrap justify-center items-start p-[1.5rem]
+                                    w-[20rem] sm:w-[40.5rem] h-auto overflow-hidden mb-[3.5625rem] gap-y-[1.5rem]
+                                    sm:border sm:border-[var(--color-custome-gray-4)] sm:rounded-[0.5rem]'>
                         {successMessage && <p className="text-green-500 text-sm w-full text-center mb-2">{successMessage}</p>}
                         {(errors.general || errors.non_field_errors) && (
                             <p className="text-red-500 text-sm w-full text-center mb-2">
@@ -129,19 +155,19 @@ const DesignerSignUp = () => {
                             </p>
                         )}
 
-                        <div className='flex flex-col gap-[1.5rem]'>
-                            <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                        <div className='flex flex-col sm:gap-[1.5rem] flex-grow'>
+                            <div className='w-full sm:flex sm:gap-[1.5rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                     <div>
                                         <label htmlFor='username' className='text-[var(--color-custome-gray-5)]'>نام و نام خانوادگی</label>
                                     </div>
-                                    <div>
+                                    <div className=''>
                                         <input className='border border-[var(--color-custome-gray-5)] focus:outline-none rounded-[8px] w-full h-[2.5rem] mt-[0.25rem] pr-[0.5rem] text-sm' type="text" id='username' placeholder='نگار زمانی' dir='rtl' value={formData.username} onChange={handleChange} />
                                         {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
 
                                     </div>
                                 </div>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0 '>
                                     <div>
                                         <label htmlFor='nationalCode' className='text-[var(--color-custome-gray-5)]'>کد ملی</label>
                                     </div>
@@ -151,8 +177,8 @@ const DesignerSignUp = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                            <div className='w-full sm:flex sm:gap-[1.5rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                     <div>
                                         <label htmlFor='education' className='text-[var(--color-custome-gray-5)]'>تحصیلات (اختیاری)</label>
                                     </div>
@@ -170,7 +196,7 @@ const DesignerSignUp = () => {
                                         {errors.education && <p className="text-red-500 text-xs mt-1">{errors.education}</p>}
                                     </div>
                                 </div>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                     <div>
                                         <label htmlFor='job' className='text-[var(--color-custome-gray-5)]'>شغل (اختیاری)</label>
                                     </div>
@@ -188,8 +214,8 @@ const DesignerSignUp = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                            <div className='w-full sm:flex sm:gap-[1.5rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                     <div>
                                         <label htmlFor='email' className='text-[var(--color-custome-gray-5)]'>آدرس ایمیل</label>
                                     </div>
@@ -198,7 +224,7 @@ const DesignerSignUp = () => {
                                         {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                                     </div>
                                 </div>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                     <div>
                                         <label htmlFor='password' className='text-[var(--color-custome-gray-5)]'>کلمه عبور</label>
                                     </div>
@@ -214,8 +240,8 @@ const DesignerSignUp = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='flex gap-[1.5rem]'>
-                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                            <div className='sm:flex sm:gap-[1.5rem]'>
+                                <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[5.5rem] sm:!mb-[7rem]'>
                                     <div>
                                         <label htmlFor='DOB' className='text-[var(--color-custome-gray-5)]'>تاریخ تولد</label>
                                     </div>
@@ -227,21 +253,21 @@ const DesignerSignUp = () => {
                             </div>
 
                         </div>
-                        <div className='w-full flex justify-end'>
+                        <div className='absolute left-[1.5rem] bottom-[1.5rem] w-full flex justify-end'>
                             
-                                <span className='relative flex justify-center items-center gap-[0.25rem] bg-[var(--color-primary)] text-white w-[11.5rem] h-[3rem] rounded-[0.5rem]'>
+                                <span className='flex justify-center items-center gap-[0.25rem] bg-[var(--color-primary)] text-white w-[11.5rem] h-[3rem] rounded-[0.5rem] px-[2rem]'>
                                     <button type="submit" className='' disabled={loading}> 
                                         {loading ? 'در حال بررسی...' : 'مرحله بعدی'}
                                     </button>
-                                    <img src={arrowLeftWhite} alt="arrow-left-white absolute left-0" style={{ width: '1.5rem', height: '1.5rem' }} />
+                                    <img src={arrowLeftWhite} alt="arrow-left-white" style={{ width: '1.5rem', height: '1.5rem' }} />
                                 </span>
                             
                         </div>
                     </form>
                 </div>
 
-                <div className='flex items-center w-[32.5rem] h-[30rem]'>
-                    <img className='object-cover w-full h-[21.125rem]' src={DesignerSignUpPic} alt="designer-sign-up-pic" />
+                <div className='flex !justify-center items-center h-[11.5rem] sm:h-[30rem] my-[1rem]'>
+                    <img className='object-cover w-[11.5rem] h-[11.5rem] sm:w-[32.5rem] sm:h-[21.125rem]' src={DesignerSignUpPic} alt="designer-sign-up-pic" />
                 </div>
             </main>
             <Footer classname="hidden sm:block" />

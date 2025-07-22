@@ -15,6 +15,8 @@ import Footer from '../components/Footer';
 import userSignUpImage from '../assets/images/user-sign-up-image.svg';
 import arrowDown from '../assets/icons/arrow-down.svg';
 
+import ArrowRight from '../Icons/ArrowRight';
+
 const UserSignUp = () => {
     const navigate = useNavigate(); 
     const { registrationData, setRegistrationData, updateRegistrationData } = useContext(RegistrationContext);
@@ -158,14 +160,30 @@ const UserSignUp = () => {
 
     return ( 
     <>
-        
+        <div className='sm:hidden flex flex-col'>
+            <div className='flex gap-[0.5rem] mt-[1rem] mr-[1.25rem] mb-[0.625rem]'>
+                <ArrowRight />
+                <span className='text-[0.75rem]'> فرم ثبت نام</span>
+            </div>
+            <hr className='text-[var(--color-custome-gray-3)] border-t-[3px]'/>
+        </div>  
         <Contact />
-        <div className='flex justify-center gap-[3.5rem] mt-[1.5rem] mr-[1.5rem] mb-[4.375rem] '>
-            <div>
-                <h2 className='text-[var(--color-primary-tint-7)] font-bold text-xl !mb-[1.5rem]' style={{fontFamily: 'IRANYekanXVF'}}>فرم ثبت اطلاعات تکمیلی</h2>
+        <div className='flex justify-between items-center mx-[1.25rem] my-[1rem] sm:hidden'>
+            <span className='text-[1rem]'>اطلاعات تماس</span>
+            <div className='relative w-[4.25rem] h-[4.25rem] flex flex-col justify-center items-center'>
+                <div className='absolute w-[3.75rem] h-[3.75rem] rounded-full border-[6px] border-[var(--color-primary)]'>
+
+                </div>
+                <span className='text-[0.75rem] absolute whitespace-nowrap'>۲ از ۲</span>
+            </div>
+        </div>
+        <div className='flex flex-col-reverse sm:flex-row justify-center gap-[3.5rem] mt-[1.5rem] mr-[1.5rem] mb-[4.375rem] '>
+            <div className='flex justify-center sm:flex-col'>
+                <h2 className='hidden sm:block text-[var(--color-primary-tint-7)] font-bold text-xl !mb-[1.5rem]' style={{fontFamily: 'IRANYekanXVF'}}>فرم ثبت اطلاعات تکمیلی</h2>
                 <form onSubmit={ handleSubmit }
-                    className='flex justify-center w-[40.5rem] h-auto overflow-hidden mt-[2rem] items-start 
-                               border border-[var(--color-custome-gray-5)] flex-col p-[1.5rem] rounded-[1.5rem]'>
+                    className='relative flex flex-wrap justify-center items-start p-[1.5rem]
+                               w-[20rem] sm:w-[40.5rem] h-auto overflow-hidden gap-y-[1.5rem]
+                               sm:border sm:border-[var(--color-custome-gray-4)] sm:rounded-[0.5rem]'>
 
                     {successMessage && <p className="text-green-500 text-sm w-full text-center mb-2">{successMessage}</p>}
                     {(errors.general || errors.non_field_errors || errors.username || errors.email || errors.password) && (
@@ -174,15 +192,15 @@ const UserSignUp = () => {
                         </p>
                     )}
                     
-                    <div className='flex flex-col gap-[1.5rem]'>
-                        <div className='flex gap-[1.5rem] '>
-                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                    <div className='w-full flex flex-col gap-[1.5rem]'>
+                        <div className='w-full sm:flex sm:gap-[1.5rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                 <div>
-                                    <label htmlFor='cellPhoneNumber' className='text-[var(--color-custome-gray-5)]'>شماره موبایل</label>
+                                    <label htmlFor='cellPhoneNumber' className='text-[0.875rem] text-[var(--color-custome-gray-5)]'>شماره موبایل</label>
                                 </div>
                                 <div>
                                     <input
-                                        className={`border ${errors.phone_number || errors.cellPhoneNumber ? 'border-red-500' : 'border-[var(--color-custome-gray-5)]'} focus:outline-none rounded-[8px] w-full h-[2.5rem] pl-[0.5rem] text-sm`}
+                                        className={`border ${errors.phone_number || errors.cellPhoneNumber ? 'border-red-500' : 'border-[var(--color-custome-gray-5)]'} focus:outline-none rounded-[8px] w-full h-[2.5rem] text-sm`}
                                         type="tel"
                                         id='cellPhoneNumber'
                                         onChange={ handleChange }
@@ -193,9 +211,9 @@ const UserSignUp = () => {
                                     {(errors.phone_number || errors.cellPhoneNumber) && <p className="text-red-500 text-xs mt-1">{errors.phone_number || errors.cellPhoneNumber}</p>}
                                 </div>
                             </div>
-                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                 <div>
-                                    <label htmlFor='telephoneNumber' className='text-[var(--color-custome-gray-5)]'>شماره تلفن (همراه با کد شهر)</label>
+                                    <label htmlFor='telephoneNumber' className='text-[0.875rem] text-[var(--color-custome-gray-5)]'>شماره تلفن (همراه با کد شهر)</label>
                                 </div>
                                 <div>
                                     <input
@@ -210,10 +228,10 @@ const UserSignUp = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex gap-[1.5rem]'>
-                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                        <div className='w-full sm:flex sm:gap-[1.5rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                 <div>
-                                    <label htmlFor='province' className='text-[var(--color-custome-gray-5)]'>استان</label>
+                                    <label htmlFor='province' className='text-[0.875rem] text-[var(--color-custome-gray-5)]'>استان</label>
                                 </div>
                                 <div className="relative">
                                     <select
@@ -235,7 +253,7 @@ const UserSignUp = () => {
                             </div>
                             <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
                                 <div>
-                                    <label htmlFor='city' className='text-[var(--color-custome-gray-5)]'>شهر</label>
+                                    <label htmlFor='city' className='text-[0.875rem] text-[var(--color-custome-gray-5)]'>شهر</label>
                                 </div>
                                 <div className="relative">
                                     <select
@@ -256,10 +274,10 @@ const UserSignUp = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex gap-[1.5rem]'>
-                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem]'>
+                        <div className='w-full sm:flex sm:gap-[1.5rem]'>
+                            <div className='w-[18rem] h-[4.25rem] flex flex-col gap-[0.25rem] !mb-[1.25rem] sm:mb-0'>
                                 <div>
-                                    <label htmlFor='zipCode' className='text-[var(--color-custome-gray-5)]'>کد پستی (اختیاری)</label>
+                                    <label htmlFor='zipCode' className='text-[0.875rem] text-[var(--color-custome-gray-5)]'>کد پستی (اختیاری)</label>
                                 </div>
                                 <div>
                                     <input
@@ -276,11 +294,11 @@ const UserSignUp = () => {
                         </div>
                         <div className='w-full h-[4.25rem] flex flex-col gap-[0.25rem]'>
                             <div>
-                                <label htmlFor='address' className='text-[var(--color-custome-gray-5)]'>آدرس کامل پستی (میتوانید از نقشه استفاه کنید)</label>
+                                <label htmlFor='address' className='text-[0.875rem] text-[var(--color-custome-gray-5)]'>آدرس کامل پستی (میتوانید از نقشه استفاده کنید)</label>
                             </div>
                             <div>
                                 <textarea
-                                    className={`border ${errors.address ? 'border-red-500' : 'border-[var(--color-custome-gray-5)]'} focus:outline-none rounded-[8px] w-full h-[5rem] pr-[0.5rem] text-sm p-2 text-[var(--color-custome-gray-9)]`}
+                                    className={`border ${errors.address ? 'border-red-500' : 'border-[var(--color-custome-gray-5)]'} focus:outline-none rounded-[8px] w-full h-[2.5rem] pr-[0.5rem] text-sm p-2 text-[var(--color-custome-gray-9)]`}
                                     id='address' // نام فیلد در formData و id در input یکسان شد
                                     onChange={ handleChange }
                                     value={formData.address}
@@ -293,21 +311,42 @@ const UserSignUp = () => {
                         </div>
                     </div>
                     
-                    <img src={ map } alt="map" className='w-[37.5rem] h-[18.75rem] mt-[2.375rem] mb-[2.5rem]'/>
-                    <div className="w-full flex justify-end pl-[1.5rem]" style={{ marginRight: "1.5rem" }}>
+                    <img src={ map } alt="map" className='w-[20rem] sm:w-[37.5rem] h-[11.8125rem] rounded-[8px] sm:h-[18.75rem] mt-[2.375rem] mb-[9.1875rem] sm:mb-[7rem]'/>
+                    <div className="absolute bottom-[3.6875rem] flex justify-end pl-[1.5rem]" style={{ marginRight: "1.5rem" }}>
+                        <button
+                            type=''
+                            className='
+                                sm:hidden 
+                                w-[9.5rem] 
+                                h-[3rem] 
+                                rounded-[8px] 
+                                text-[var(--color-primary)]
+                                opacity-100 
+                                hover:opacity-90 
+                                transition-opacity 
+                                duration-300
+                                border border-[var(--color-primary)]
+                                ml-[1rem]
+                                '
+                        >مرحله قبل                       
+                        </button>
                         <button
                             type='submit'
                             disabled={loading} 
-                            className='w-[11.5rem] h-[3rem] rounded-[8px] text-white opacity-100 hover:opacity-90 transition-opacity duration-300'
+                            className='w-[9.5rem] sm:w-[11.5rem] h-[3rem] rounded-[8px] text-white opacity-100 hover:opacity-90 transition-opacity duration-300'
                             style={{ backgroundColor: "var(--color-primary)"}}
                         >
                             {loading ? 'در حال ارسال...' : 'ثبت اطلاعات'}
                         </button>
+                        
                     </div>
+
 
                 </form>
             </div>
-            <img src={ userSignUpImage } alt="user-signup-image" className='self-end w-[32.5rem] h-[32rem] mr-[2rem]' />
+            <div className='flex !justify-center items-center h-[11.5rem] sm:h-[30rem] my-[1rem]'>
+                <img src={ userSignUpImage } alt="user-signup-image" className='self-end w-[11.5rem] h-[11.5rem] sm:w-[32.5rem] sm:h-[30rem] mr-[2rem]' />
+            </div>
         </div>
 
         <Footer classname="hidden sm:block" />
