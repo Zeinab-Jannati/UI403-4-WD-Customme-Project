@@ -340,13 +340,13 @@ const Home = () => {
                     <div className='flex w-full justify-center items-center max-w-[76.5rem] px-[1.25rem] sm:px-0 whitespace-nowrap'>
                         <div className='flex items-center w-[20rem] sm:w-[76.5rem] whitespace-nowrap'>
                             <img src={ like } alt="like" className='hidden sm:block w-[2.5rem] h-[2.5rem]' />
-                            <h4 className='text-[0.875rem] sm:text-[1.5rem] font-bold !mr-[0.5rem] !ml-[1.3125rem]'>علاقه‌مندی‌ها</h4>
+                            <h4 className='text-[0.875rem] sm:text-[1.5rem] font-bold !mr-[0.5rem] !ml-[1.3125rem] !mb-[0.75rem]'>علاقه‌مندی‌ها</h4>
                             <hr className='w-full border-[var(--color-custome-gray-4)] hidden sm:block' />
                         </div>
                     </div>
                 </div>
 
-                <div className='relative w-full flex gap-[1rem] overflow-hidden'>
+                <div className='relative w-full flex flex-wrap sm:flex-nowrap gap-[1rem] overflow-hidden'>
                     <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                     <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
                     <ProductCard imageUrl={ productPic } productName="استیکر فرندز" productDescription="دارای رنگ بندی، قابل طراحی" price="۱۵۰,۰۰۰" />
