@@ -118,7 +118,7 @@ const UserSignUp = () => {
         console.log("Final payload to be sent:", finalPayload);
 
         try {
-            console.log("this is the line you pay attention to:" + import.meta.env.REACT_APP_API_URL);
+            console.log("this is the line you pay attention to:" , import.meta.env.REACT_APP_API_URL);
             const response = await fetch(`${import.meta.env.REACT_APP_API_URL}api/auth/register-designer/`, {
                 method: 'POST',
                 headers: {
