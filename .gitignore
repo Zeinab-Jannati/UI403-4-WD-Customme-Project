@@ -1,0 +1,37 @@
+# Global ignores
+.env              
+.DS_Store             
+
+# Editor directories and files
+.vscode/              
+!.vscode/extensions.json
+.idea                
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Log files 
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Python / Django specific ignores (for back-end folder)
+/back-end/__pycache__/
+/back-end/*.pyc
+/back-end/*.sqlite3
+/back-end/venv/
+/back-end/staticfiles/ # The folder where collectstatic gathers files
+/back-end/media/       # The folder for user-uploaded media files
+
+# Node.js / React specific ignores (for front-end folder)
+/front-end/node_modules/ # Node.js dependencies
+/front-end/dist/         # Common build output for Vite/React
+/front-end/dist-ssr/     # Server-side rendering build output
+/front-end/build/        # Common build output for Create React App (if applicable)
+/front-end/.env.local    # Local environment variables for frontend (similar to your '*.local')
+/front-end/.parcel-cache/ # If you use Parcel bundler

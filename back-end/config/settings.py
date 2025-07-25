@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv # این خط را اضافه کنید
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,13 +23,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+IS_PRODUCTION = os.environ.get('IS_PRODUCTION', 'False').lower() == 'true'
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-cg=qep!9xiff8avt#ll$t@^b*beq=^gj!e6%7#3b$%e55_k%s6"
+SECRET_KEY = os.environ.get('SECRET_KEY', "your_dev_key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not IS_PRODUCTION
 
-ALLOWED_HOSTS = []
+
+# ALLOWED_HOSTS
+if IS_PRODUCTION:
+    ALLOWED_HOSTS = ['.onrender.com', 'your-custom-domain.com']
+    # 'your-custom-domain.com' را حذف کنید اگر فعلا دامنه ای ندارید
+else:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,6 +56,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
 
+    'whitenoise.runserver_nostatic',
+
     #custome-apps
     'account',
     'products',
@@ -50,7 +66,15 @@ INSTALLED_APPS = [
 ]
 
 # --- CORS Headers Settings ---
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+if IS_PRODUCTION:
+    CORS_ALLOW_ALL_ORIGINS = False
+    CORS_ALLOWED_ORIGINS = [
+        'https://your-frontend-domain.com', 
+        'https://your-frontend-name.netlify.app', 
+    ]
+else:
+    CORS_ALLOW_ALL_ORIGINS = True 
 
 # --- Django REST Framework Settings ---
 REST_FRAMEWORK = {
@@ -96,6 +120,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -127,12 +154,27 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if IS_PRODUCTION:
+    DATABASES = {
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            ssl_require=True 
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 
 # Password validation
@@ -170,6 +212,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+if IS_PRODUCTION:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
