@@ -2,12 +2,10 @@ import '../index.css'
 import '../styles/base.css'
 import '../styles/components.nav.css'
 
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import MainMenu from '../components/MainMenu'
-import ProfileSidebar from '../components/ProfileSidebar'
 import ProductCard from '../components/ProductCard'
-import Filter from '../components/filter'
+import Filter from '../components/Filter.jsx'
 import Pagination from '../components/Pagination'
 
 import productPic from '../assets/images/product-image.svg'

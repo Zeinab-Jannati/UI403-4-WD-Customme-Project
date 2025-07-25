@@ -4,7 +4,6 @@ import '../index.css'
 import '../styles/base.css'
 import '../styles/components.nav.css'
 
-import Navbar from '../components/Navbar'
 import MainMenu from '../components/MainMenu'
 import Footer from '../components/Footer'
 import ProfileSidebar from '../components/ProfileSidebar'
