@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv # این خط را اضافه کنید
+from dotenv import load_dotenv 
+import dj_database_url
 
 load_dotenv()
 
@@ -35,10 +36,10 @@ DEBUG = not IS_PRODUCTION
 
 # ALLOWED_HOSTS
 if IS_PRODUCTION:
-    ALLOWED_HOSTS = ['.onrender.com', 'your-custom-domain.com']
+    ALLOWED_HOSTS = ['customme-online-shop.onrender.com', '.onrender.com']
     # 'your-custom-domain.com' را حذف کنید اگر فعلا دامنه ای ندارید
 else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
 
 # ALLOWED_HOSTS = []
 
