@@ -118,7 +118,7 @@ const UserSignUp = () => {
         console.log("Final payload to be sent:", finalPayload);
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/auth/register-designer/', {
+            const response = await fetch(`${import.meta.env.REACT_APP_API_URL}api/auth/register-designer/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

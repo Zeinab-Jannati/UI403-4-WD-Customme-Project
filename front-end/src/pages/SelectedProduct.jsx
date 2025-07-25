@@ -44,7 +44,7 @@ const SelectedProduct = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/products/${id}/`);
+                const response = await fetch(`${import.meta.env.REACT_APP_API_URL}api/products/${id}/`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

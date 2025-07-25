@@ -24,7 +24,7 @@ const UserProfile = () => {
         const fetchBestSellerProducts = async () => {
             setLoadingBestSellers(true);
             setErrorBestSellers(null);
-            const apiUrl = 'http://127.0.0.1:8000/api/products/?sort_by=best_sellers';
+            const apiUrl = `${import.meta.env.REACT_APP_API_URL}api/products/?sort_by=best_sellers`;
             
             try {
                 const response = await fetch(apiUrl);
